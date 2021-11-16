@@ -1,0 +1,337 @@
+ {% extends 'base.html' %} {% block content %} {% load static %}
+
+<!-- maincontent -->
+<section class="section-start">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center ">
+        <div class="col-md-5 p-lg-5 mx-auto my-5 col-lg-6">
+            <h1 class="display-4 fw-normal">The Easiest Way to Get Your New Job</h1>
+
+            <div class="input-group  mb-3 mt-5 ">
+                <input type="text" class="form-control" placeholder="job">
+
+
+                <select class="form-select" id="inputGroupSelect02">
+                  <option selected>job location</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <button class="btn btn-outline-primary " type="button">search</button>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- section-1 -->
+<section class="mt-5  section-1">
+    <div class="container p-3">
+
+        <div class="row pt-2">
+            <div class="col-md-12 text-center pb-5">
+                <h3>Browse categories</h3>
+            </div>
+
+            <div class="col col-lg-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <span class="material-icons-outlined" style="font-size: 4em;">
+                            home
+                            </span>
+                        <h5 class="card-title">Real Estate</h5>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <span class="material-icons-outlined " style="font-size: 4em;">
+                            language
+                            </span>
+                        <h5 class="card-title">sale/marketing</h5>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-3">
+                <div class="card text-center " style="width: 18rem;">
+                    <div class="card-body">
+                        <span class="material-icons-outlined " style="font-size: 4em;">
+                            school
+                            </span>
+                        <h5 class="card-title">education/training</h5>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col col-lg-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <span class="material-icons-outlined " style="font-size: 4em;">
+                            health_and_safety
+                            </span>
+                        <h5 class="card-title">healthcare</h5>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-2">
+
+            <div class="col col-lg-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <span class="material-icons-outlined " style="font-size: 4em;">
+                            science
+                            </span>
+                        <h5 class="card-title">science</h5>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <span class="material-icons-outlined " style="font-size: 4em;">
+                            computer
+                            </span>
+                        <h5 class="card-title">Technologies</h5>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <span class="material-icons-outlined " style="font-size: 4em;">
+                            brush
+                            </span>
+                        <h5 class="card-title">art/Design</h5>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <span class="material-icons-outlined " style="font-size: 4em;">
+                           restaurant
+                            </span>
+                        <h5 class="card-title">food services</h5>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- section-1 -->
+
+<!-- section-2 -->
+<section class="section-2">
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="col-md-12 text-center pb-5">
+                <h3>featured jobs</h3>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{% static 'images/test.png' %}" class="card-img-top" alt="...">
+
+                        <div class="card-body">
+                            <p class="fs-4">php devoloper</p>
+                            <p class="fst-italic"><i class="bi bi-calendar3 "></i>2/06/05</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                                </div>
+                                <small class="text-muted"><i class="bi bi-geo-alt ">location</i></small>
+                                <small class="text-muted"><i class="bi bi-clock"></i>time</i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+
+                        <img src="{% static 'images/test.png' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="fs-4">django devoloper</p>
+                            <p class="fst-italic"><i class="bi bi-calendar3 "></i>2/06/05</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                                </div>
+                                <small class="text-muted"><i class="bi bi-geo-alt ">location</i></small>
+                                <small class="text-muted"><i class="bi bi-clock"></i>time</i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{% static 'images/test.png' %}" class="card-img-top" alt="...">
+
+                        <div class="card-body">
+                            <p class="fs-4">flutter devoloper</p>
+                            <p class="fst-italic"><i class="bi bi-calendar3 "></i>2/06/05</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                                </div>
+                                <small class="text-muted"><i class="bi bi-geo-alt ">location</i></small>
+                                <small class="text-muted"><i class="bi bi-clock"></i>time</i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{% static 'images/test.png' %}" class="card-img-top" alt="...">
+
+                        <div class="card-body">
+                            <p class="fs-4">python devoloper</p>
+                            <p class="fst-italic"><i class="bi bi-calendar3 "></i>2/06/05</p>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary ">View</button>
+
+                                </div>
+                                <small class="text-muted"><i class="bi bi-geo-alt ">location</i></small>
+                                <small class="text-muted"><i class="bi bi-clock"></i>time</i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{% static 'images/test.png' %}" class="card-img-top" alt="...">
+
+                        <div class="card-body">
+                            <p class="fs-4">c++ devoloper</p>
+                            <p class="fst-italic"><i class="bi bi-calendar3 "></i>2/06/05</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                                </div>
+                                <small class="text-muted"><i class="bi bi-geo-alt ">location</i></small>
+                                <small class="text-muted"><i class="bi bi-clock"></i>time</i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{% static 'images/test.png' %}" class="card-img-top" alt="...">
+
+                        <div class="card-body">
+                            <p class="fs-4"> devoloper</p>
+                            <p class="fst-italic"><i class="bi bi-calendar3 "></i>2/06/05</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                                </div>
+                                <small class="text-muted"><i class="bi bi-geo-alt ">location</i></small>
+                                <small class="text-muted"><i class="bi bi-clock"></i>time</i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section-2-end -->
+
+<!-- section-3 -->
+<section class="section-3 mt-5">
+    <div class="container">
+        <div class="col-md-12 text-center pb-5">
+            <h3>latest jobs</h3>
+        </div>
+        <div class="row">
+            <div class="my-3 p-3 bg-body rounded shadow-sm" style="height: 25em;">
+
+                <div class="d-flex text-muted pt-3">
+
+
+                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100 ">
+                        <div class="d-flex justify-content-between">
+                            <strong class="text-gray-dark pt-4">android devoloper</strong>
+                            <p class="pt-4">location</p>
+                            <p class="pt-4">time</p>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="d-flex text-muted pt-3">
+
+
+                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100 ">
+                        <div class="d-flex justify-content-between">
+                            <strong class="text-gray-dark pt-4">android devoloper</strong>
+                            <p class="pt-4">location</p>
+                            <p class="pt-4">time</p>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="d-flex text-muted pt-3">
+
+
+                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100 ">
+                        <div class="d-flex justify-content-between">
+                            <strong class="text-gray-dark pt-4">android devoloper</strong>
+                            <p class="pt-4">location</p>
+                            <p class="pt-4">time</p>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="d-flex text-muted pt-3">
+
+
+                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100 ">
+                        <div class="d-flex justify-content-between">
+                            <strong class="text-gray-dark pt-4">android devoloper                                   
+                            </strong>
+
+                            <p class="pt-4">location</p>
+                            <p class="pt-4">time</p>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- section-3-end -->
+
+{% endblock %}

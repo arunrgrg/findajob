@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+
+/* googletext */
+
+:root {
+    --Sniglet-font: "Sniglet", cursive;
+    --Rubik: "Rubik", cursive;
+    --Patua: "Patua One", cursive;
+    --Lobster: "lobster", cursive;
+}
+
+
+/* googletext */
+
+
+/* header */
+
+header {
+    background: #173a5e;
+}
+
+header a span {
+    font-family: var(--Patua);
+    padding-top: 4px;
+}
+
+header a span:hover {
+    color: #5F9EA0;
+}
+
+header ul li a {
+    font-style: var(--Rubik);
+}
+
+header ul li a:hover {
+    color: #5F9EA0;
+    background-color: #5F9EA0;
+}
+
+.text-end button {
+    margin-left: 6vmin;
+}
+
+.section-start {
+    background: #649DDB;
+}
+
+.section-start .col-md-5 {
+    font-family: var(--Rubik);
+    font-weight: bold;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .section-1 .card {
+        margin-left: 7vmin;
+    }
+}
+
+.section-start .input-group option {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.section-start {
+    margin-top: -16px;
+}
+
+
+/* section1 */
+
+.section-1 .col .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background: #F8F8FF;
+}
+
+.section-1 .col .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.section-1 .col .card h5 {
+    font-family: sans-serif;
+}
+
+.section-1 .col .card .material-icons-outlined {
+    color: #6495ED;
+}
+
+
+/* section1 */
+
+
+/* section-2 */
+
+.section-2 .col .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background: #F8F8FF;
+}
+
+.section-2 .col .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.section-2 .col .card-body .fs-4 {
+    font-family: sans-serif;
+}
+
+
+/* section2 */
+
+
+/* section3 */
+
+.section-3 .row:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
