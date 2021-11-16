@@ -1,1 +1,1 @@
-web: gunicorn usedbuy.wsgi --log-file -
+web: gunicorn findajob.wsgi --log-file -
