@@ -1,0 +1,81 @@
+{% extends 'employerbase.html' %}{% block content %}
+
+
+<section>
+    <h2 class="text-center mt-5 display-7 fw-bold mt-5 pt-5">JOB DETAILS</h2>
+    <div class="container mt-5 pt-5">
+
+        <div class="row bg-white">
+            <div class="col-md-8 ">
+                <div class="row align-items-md-stretch ">
+                    <div class="h-100 p-5  border rounded-3 border-primary">
+                        <h4 class="fw-normal mb-3">Job Description</h4>
+                        <p class="fw-light lead">{{ emplor.jobdescription }}
+                        </p>
+                        <div class="mt-5">
+                            <h4 class="fw-normal mb-4 ">Required Knowledge, Skills, and Abilities</h4>
+                            <ul>
+                                <li class="fw-light  lead"> {{ emplor.skill1 }}</li>
+                                <li class="fw-light lead"> {{ emplor.skill2 }}</li>
+                                <li class="fw-light lead"> {{ emplor.skill3 }}</li>
+                                <li class="fw-light lead"> 
+                                    {{ emplor.skill4 }}
+                                </li>
+                              
+                            </ul>
+                        </div>
+                        <div class="mt-5 ">
+                            {% comment %} <h4 class="fw-normal mb-4">Education Qualification
+                            </h4>
+                            <ul>
+                                <li class="fw-light lead"> {{ emplor.skill }}
+                                </li>
+                                <li class="fw-light lead"> </li>
+                                <li class="fw-light lead"> </li>
+                                <li class="fw-light lead">
+                                </li>
+                                <li class="fw-light lead">
+                                </li>
+                            </ul> {% endcomment %}
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Overview</h5>
+                        <hr>
+                        <span><i class="bi bi-currency-dollar"></i>Offered Salary</span>
+                        <p class="fw-light">{{ emplor.salary }}</p>
+
+                        <span><i class="bi bi-award">experiance</i></span>
+                        <p class="fw-light">{{ emplor.experiance }}</p>
+                        <span><i class="bi bi-mortarboard"></i>Qualification</span>
+                        <p class="fw-light">{{ emplor.qualification }}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

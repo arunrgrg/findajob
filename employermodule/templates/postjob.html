@@ -1,0 +1,195 @@
+{% extends 'employerbase.html' %}{% block content %}
+
+
+<section class="mt-5 mb-5 pb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6 ">
+            <div class=" d-flex justify-content-between">
+                <h4 class="mb-5 text-primary">POST YOUR JOB</h4>
+            </div>
+            <form class="needs-validation" id="post-job" novalidate>
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="jobtitle" class="form-label">Job Title</label>
+                        <input name="jobtitle" type="text" class="form-control" id="jobtitle" placeholder="" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="com_name" class="form-label">Company Name</label>
+                        <input name="com_name" type="text" class="form-control" id="com_name" placeholder="" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="p_location" class="form-label">location</label>
+                        <select class="form-select" id="p_location" name="p_location" required>
+                          
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="categories" class="form-label">job type</label>
+                        <select class="form-select" id="jobtype"  required>
+                           <option selected disabled value>Choose...</option>
+                           <option value="full time">full time</option>
+                           <option value="intern">intern</option>
+                           <option value="intern">part time</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="categories" class="form-label">job category</label>
+                        <select class="form-select" id="jobcategories" name="categories" required>
+                           <option selected disabled value>Choose...</option>
+                           <option value="Real Estate">Real Estate</option>
+                           <option value="sale/marketing">sale/marketing</option>
+                           <option value="education/training">education/training</option>
+                           <option value="healthcare">healthcare</option>
+                           <option value="science">science</option>
+                           <option value="Technologies">Technologies</option>
+                           <option value="art/Design">art/Design</option>
+                           <option value="food services">food services</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="Description">job Description:</label>
+                        <textarea class="form-control" aria-label="With textarea" id="jobdesc" required></textarea>
+
+                    </div>
+                    <div class="col-12">
+                        <label for="Description">Skills, and Abilities</label>
+                        <input name="jobtitle" type="text" class="form-control" id="skill1" placeholder="" required>
+                        <input name="jobtitle" type="text" class="form-control" id="skill2" placeholder="" required>
+                        <input name="jobtitle" type="text" class="form-control" id="skill3" placeholder="" required>
+                        <input name="jobtitle" type="text" class="form-control" id="skill4" placeholder="" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="experience" class="form-label">Experience
+                        </label>
+                        <select class="form-select" id="Experience" name="experience" required>
+                           <option selected disabled value>Choose...</option>
+                           <option value="fresher">fresher</option>
+                           <option value="1 year">1 year</option>
+                           <option value="1 to 5 year">1 to 5 year</option>
+                           <option value="5 to 10 year">5 to 10 year</option>
+                           <option value="10 to 20 year">10 to 20 year</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="Salary" class="form-label">Salary Range
+                        </label>
+                        
+                        <input name="jobtitle" type="text" class="form-control" id="salary" placeholder="" required>
+                    </div>
+                   
+                    <div class="col-12">
+                        <label for="qualification" class="form-label">Education Qualification</label>
+                        <input name="qualification" type="text" class="form-control " id="qualification" required>
+                    </div>
+
+                </div>
+                <hr class="my-4 ">
+                <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="empostajax()">POST</button>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+
+
+{% endblock %}
+
+
+{% block escript %}
+
+<script>
+    function locationa(){
+var month = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 
+'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
+var mn = "<option selected disabled value>choose...</option>";
+for (i = 0; i < month.length; i++) {
+    mn += "<option value='" + month[i] + "'>" + month[i] + "</option>";
+}
+document.getElementById('p_location').innerHTML = mn;
+
+
+
+    }
+
+</script>
+
+<script>
+
+
+
+
+
+    console.log("hello")
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function empostajax() {
+        $.ajax({
+            url: '/jobem/',
+            type: 'POST',
+            data: {
+                jobtitle: $('#jobtitle').val(),
+                com_name: $('#com_name').val(),
+                p_location: $('#p_location').val(),
+                jobtype: $('#jobtype').val(),
+                jobdesc: $('#jobdesc').val(),
+                skill1: $('#skill1').val(),
+                skill2: $('#skill2').val(),
+                skill3: $('#skill3').val(),
+                skill4: $('#skill4').val(),
+                jobcategories:$('#jobcategories').val(),
+                experience: $('#Experience').val(),
+                salary: $('#salary').val(),
+                qualification: $('#qualification').val(),
+                
+               
+            },
+    
+
+        })
+    }
+
+ 
+
+</script>
+
+
+
+
+
+
+
+<script>
+
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+
+
+
+
+</script>
+
+{% endblock escript %}

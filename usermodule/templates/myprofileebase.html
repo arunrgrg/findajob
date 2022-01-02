@@ -1,0 +1,143 @@
+{% extends 'userbase.html' %}{% block n %} {{user.sfirstname}} {% endblock %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/editprofile.css' %}">{% endblock %} {% block content %}
+
+
+<div class="container gg mt-5 pt-5">
+    <div class="view-account">
+        <section class="module">
+            <div class="module-inner">
+                <div class="side-bar">
+                    <div class="user-info">
+                 {% block img %}      <img class="img-profile img-circle img-responsive center-block" src="/static/media/{{img.simg}}" alt="">     {% endblock %} 
+                        <ul class="meta list list-unstyled">
+                            <li class="name"> {{user.sfirstname}}
+                                {% comment %} <label class="label label-info">UX Designer</label> {% endcomment %}
+                            </li>
+                        </ul>
+                    </div>
+                    <nav class="side-menu">
+                        <ul class="nav">
+                            <li class="active"><a href="{% url 'seemyprofile' %}"><span class="fa fa-user"></span>PROFILE</a></li>
+                            <li><a href="{% url 'profileedit' %}"><span class="fa fa-cog"></span>EDIT PROFILE</a></li>
+                            <li><a href="{% url 'changepwd' %}"><span class="fa fa-credit-card"></span>CHANGE PASSWORD</a></li>
+                            <li><a href="#"><span class="fa fa-envelope"></span> Messages</a></li>
+
+                            {% comment %} <li><a href="user-drive.html"><span class="fa fa-th"></span> Drive</a></li>
+                            <li><a href="#"><span class="fa fa-clock-o"></span> Reminders</a></li> {% endcomment %}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="content-panel">
+                    {% block profile %}
+                    <div class="row">
+                        <div class="col">
+                            <!-- Info -->
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">Full Name</div>
+                                        <div class="col-md-9">
+                                            {{user.sfirstname}}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">Email</div>
+                                        <div class="col-md-9">
+                                            {{user.semail}}
+
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">Phone</div>
+                                        <div class="col-md-9">
+                                            {{user.smobilenumber}}
+                                        </div>
+                                    </div>
+                                    <h6 class="my-3">education</h6>
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">school name</div>
+                                        <div class="col-md-9">
+                                            {{userob.sschoolname}}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">qualification</div>
+                                        <div class="col-md-9">
+                                            {{userob.squalification}}
+                                        </div>
+                                    </div>
+                                    <h6 class="my-3">experiance</h6>
+
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">company</div>
+                                        <div class="col-md-9">
+                                            {{userob.scompany}}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">role</div>
+                                        <div class="col-md-9">
+                                            {{userob.srole}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 text-muted">START/END DATE</div>
+                                        <div class="col-md-9">
+                                            {{userob.sstartdate}} TO  {{userob.senddate}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- / Info -->
+                        </div>
+                        <div class="col-xl-4">
+                            <!-- Side info -->
+                            <div class="card mb-4">
+                                <hr class="border-light m-0">
+                                <div class="card-body">
+                                    <p class="mb-2">
+                                        <i class="ion ion-md-desktop ui-w-30 text-center text-lighter"></i>  {{userob.stitle}}</p>
+                                    <p class="mb-2 text-info">
+                                        <i class="ion ion-ios-navigate ui-w-30 text-center  text-info"></i> ABOUT ME</p> 
+                                     <p class="mb-0">
+                                        {{userob.sabout}}
+                                    </p> 
+                                </div>
+                                <hr class="border-light m-0">
+                                <div class="card mb-4">
+                                    <div class="card-header">Skills</div>
+                                    <div class="card-body">
+                                        <div class="mb-1">{{userob.sskill1}}<small class="text-muted">80%</small></div>
+                                        <div class="progress mb-3" style="height: 4px;">
+                                            <div class="progress-bar bg-secondary" style="width: 80%;"></div>
+                                        </div>
+                                        <div class="mb-1">{{userob.sskill2}} <small class="text-muted">95%</small></div>
+                                        <div class="progress mb-3" style="height: 4px;">
+                                            <div class="progress-bar bg-success" style="width: 95%;"></div>
+                                        </div>
+                                        <div class="mb-1">{{userob.sskill3}} <small class="text-muted">90%</small></div>
+                                        <div class="progress mb-3" style="height: 4px;">
+                                            <div class="progress-bar bg-warning" style="width: 90%;"></div>
+                                        </div>
+                                        <div class="mb-1">{{userob.sskill4}} <small class="text-muted">80%</small></div>
+                                        <div class="progress" style="height: 4px;">
+                                            <div class="progress-bar bg-danger" style="width: 80%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- / Side info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- / Content -->
+            </div>
+            {% endblock profile %}
+    </div>
+</div>
+</section>
+</div>
+</div>
+
+
+{% endblock %}

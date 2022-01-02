@@ -1,0 +1,194 @@
+{% extends 'userbase.html' %}{% block n %} {{user.sfirstname}} {% endblock %}
+{% block content %}
+
+<section class="mt-5">
+    <h2 class="text-center mt-5 display-7 fw-bold mt-5 mb-5">ADD RESUME</h2>
+    <div class="container">
+        <div class="row flex-lg-nowrap  justify-content-center">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="e-profile">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-auto mb-3">
+                                            <div class="mx-auto" style="width: 140px;">
+                                                <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                                                    <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form class="form" method="POST" action="/simg/" enctype="multipart/form-data">{% csrf_token %}
+                                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                            <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                                <div class="mt-2">
+                                                    <input class="form-control" type="file" id="formFile" name="seimg">
+                                                    
+                                                </div>
+                                                <button type="submit" class="btn btn-light mt-2">upload</button>
+                                            </div>
+                                        </form>
+                                            <div class="text-sm-right">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="" class="active nav-link">details</a></li>
+                                    </ul>
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane active">
+                                            <form class="form" method="POST" action="/resume/">{% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="row">
+                                                           
+                                                        </div>
+                                                        <div class="row mt-4">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>TITLE</label>
+                                                                    <input class="form-control" type="text" placeholder="" name="stitle">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-4">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>SKILLS</label>
+                                                                    <input class="form-control mb-1" type="text" placeholder="" name="sskill1">
+                                                                    <input class="form-control mb-1" type="text" placeholder="" name="sskill2"> 
+                                                                    <input class="form-control mb-1" type="text" placeholder="" name="sskill3">
+                                                                    <input class="form-control mb-1" type="text" placeholder="" name="sskill4">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-4">
+                                                            <div class="col mb-3">
+                                                                <div class="form-group">
+                                                                    <label>ABOUT</label>
+                                                                    <textarea class="form-control" rows="5" placeholder="" name="sabout"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <ul class="nav nav-tabs">
+                                                            <li class="nav-item"><a href="" class="active nav-link">Education</a></li>
+                                                        </ul>
+                                                        <div class="tab-content pt-3">
+                                                            <div class="tab-pane active">
+                                                                <form class="form" novalidate="">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <div class="row mt-4">
+                                                                                <div class="col">
+                                                                                    <div class="form-group">
+                                                                                        <label>SCHOOL NAME</label>
+                                                                                        <input class="form-control" type="text" name="sschoolname" placeholder="" value="">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row mt-4">
+                                                                                <div class="col">
+                                                                                    <div class="form-group">
+                                                                                        <label>
+                                                                                         QUALIFICATION</label>
+                                                                                        <input class="form-control" type="text" placeholder="" name="squalification">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row mt-4">
+                                                                                <div class="col mb-3">
+                                                                                    {% comment %} <div class="form-group">
+                                                                                        <label>NOTES</label>
+                                                                                        <textarea class="form-control" rows="5" placeholder="" name="sqnotes"></textarea>
+                                                                                    </div> {% endcomment %}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <ul class="nav nav-tabs">
+                                                                    <li class="nav-item"><a href="" class="active nav-link">EXPERIANCE</a></li>
+                                                                </ul>
+                                                                <div class="tab-content pt-3">
+                                                                    <div class="tab-pane active">
+                                                                        <form class="form" novalidate="">
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <div class="row mt-4">
+                                                                                        <div class="col">
+                                                                                            <div class="form-group">
+                                                                                                <label>COMPANY</label>
+                                                                                                <input class="form-control" type="text" name="scompany" placeholder="" value="">
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                    <div class="row mt-4">
+                                                                                        <div class="col">
+                                                                                            <div class="form-group">
+                                                                                                <label>
+                                                                                                  ROLE</label>
+                                                                                                <input class="form-control" type="text" placeholder="" name="srole">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="row mt-4">
+                                                                                        <div class="col">
+                                                                                            <div class="form-group">
+                                                                                                <label>
+                                                                                                   START DATE</label>
+                                                                                                <input class="form-control" type="date" placeholder="" name="sstartdate">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col">
+                                                                                            <div class="form-group">
+                                                                                                <label>
+                                                                                                   END DATE</label>
+                                                                                                <input class="form-control" type="date" placeholder="" name="senddate">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row mt-4">
+                                                                                        <div class="col mb-3">
+                                                                                            {% comment %} <div class="form-group">
+                                                                                                <label>NOTES</label>
+                                                                                                <textarea class="form-control" rows="5" name="scnotes" placeholder=""></textarea>
+                                                                                            </div> {% endcomment %}
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col d-flex justify-content-end">
+                                                                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                                                                    </div>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+</section>
+
+
+
+{% endblock %}

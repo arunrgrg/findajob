@@ -1,0 +1,166 @@
+{% extends 'userbase.html' %}{% block n %} {{user.sfirstname}} {% endblock %} {% block content %}
+
+<section class="mt-5 mb-5 pb-5">
+    <!-- sidebar...... -->{% if se is None %}
+    <h2 class="text-center mt-5 display-7 fw-bold">JOB LIST</h2>
+    {% else %}
+    <h2 class="text-center mt-5 display-7 fw-bold">{{nm}}</h2>
+    {% endif %}
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-3 mt-5 ">
+                <h5 class="pt-3">sort by</h5>
+                <form method="get" class="" name="member_signup" id="my">
+                    <div class=" mb-4 mt-4">
+                        <div class=" mb-4 mt-4">
+                            <label for="country" class="form-label pb-2">location</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.location}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" mb-4">
+                        <div class=" mb-4 mt-4">
+                            <label for="country" class="form-label">job type</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.jobtype}}
+                            </div>
+                            </select>
+                        </div>
+                    </div>
+                    <div class=" mb-4">
+                        <div class=" mb-4 mt-4">
+                            <label for="country" class="form-label">jobcategory</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.jobcategory}}
+                            </div>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="list-group">
+                        <div class="list-group">
+                            <label for="country" class="form-label">experiance</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.experiance}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" ">
+                        <div class=" mt-4 ">
+                            <label for="country" class="form-label">company name</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.companyname}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" ">
+                        <div class=" mt-4 ">
+                            <label for="country" class="form-label">salary</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.salary}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-success mt-3" id="btn" name="btn">search</button>
+                    </div>
+                </form>
+
+            </div>
+            <!-- sidebar end -->
+            {% comment %} {% for obj in se %} {% endcomment %}
+            <!-- job list -->
+
+
+            <div class="col-md-8 mt-5 pt-2 mb-5 ml-5">
+
+                <div class="card   mb-5 py-2">
+                    <div class="card-body  ">
+                        <div class="row no-gutters  ">
+                            <!-- <div class="col mr-2 d-flex   justify-content-between align-items-center"> -->
+                            {% if se is None %} {% for obj in myFilter.qs %}
+                            <div class="card   mb-5 py-2">
+                                <div class="card-body  ">
+                                    <div class="row no-gutters  ">
+                                        <div class="col mr-2 d-flex   justify-content-between align-items-center">
+                                            <img class="img-profile img-circle img-responsive center-block" style="max-width:10%;" src="/static/media/{{ obj.companyimage }}" alt="">
+                                            <div>
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    {{ obj.jobtitile }}
+                                                </div>
+                                                <button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">{{ obj.companyname}}</button>
+                                                <button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">  ${{ obj.salary }}</button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">   {{ obj.experiance }}</button>
+                                            </div>
+                                            <div class=""><i class="bi bi-geo-alt">{{ obj.location }}</i></div>
+                                            <div class="">
+                                                <span class="badge bg-danger bg-success">
+                                                        {{ obj.jobtype }}</span>
+                                            </div>
+                                            <div class="">
+                                                <a href="/viewjob/{{ obj.id }}"> <span class="badge rounded-pill bg-warning text-dark">view</span> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %} {% else %} {% for obj in se.qs %}
+                            <div class="card   mb-5 py-2">
+                                <div class="card-body  ">
+                                    <div class="row no-gutters  ">
+                                        <div class="col mr-2 d-flex   justify-content-between align-items-center">
+                                            <img class="img-profile img-circle img-responsive center-block" style="max-width:10%;" src="/static/media/{{ obj.companyimage }}" alt="">
+                                            <div>
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    {{ obj.jobtitile }}
+                                                </div>
+                                                <button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">{{ obj.companyname}}</button>
+                                                <button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">  ${{ obj.salary }}</button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">   {{ obj.experiance }}</button>
+                                            </div>
+                                            <div class=""><i class="bi bi-geo-alt">{{ obj.location }}</i></div>
+                                            <div class="">
+                                                <span class="badge bg-danger bg-success">
+                            {{ obj.jobtype }}</span>
+                                            </div>
+                                            <div class="">
+                                                <a href="/viewjob/{{ obj.id }}"> <span class="badge rounded-pill bg-warning text-dark">view</span> </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %} {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- job list -->
+</section>
+
+
+
+{% comment %} {% endfor %} {% endcomment %} {% endblock %} {% block script %}
+<script>
+    // $("#id_jobcategory").val("science");
+    // console.log(
+    //     "{{se}}"
+    // )
+    // var data = "{{se}}"
+    // if (data !== null && data !== '') {
+    //     function h() {
+    //         document.getElementById('btn').click();
+    //     }
+
+    //     // function submitForm() {
+    //     //     document.getElementById("my").submit();
+    //     // }
+
+    //     // window.onload(setTimeout(submitForm, 2000)) = submitForm;
+
+    // }
+</script>
+{% endblock %}

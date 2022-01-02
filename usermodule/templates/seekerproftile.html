@@ -1,0 +1,134 @@
+{% extends 'userbase.html' %}{% block content %}
+<div class="container flex-grow-1 container-p-y pt-5 mt-5">
+
+    <!-- Header -->
+    <div class="container-m-nx container-m-ny theme-bg-white mb-4">
+        <div class="media col-md-10 col-lg-8 col-xl-7 py-5 mx-auto">
+            <img src="/usermodule/media/{{img.simg}}" alt="" class="d-block ui-w-100 rounded-circle">
+            <div class="media-body ml-5">
+                <h4 class="font-weight-bold mb-4">{{user.sfirstname}}</h4>
+                <div class="text-muted mb-4">
+                    <h6>about me</h6>
+                    {{userob.sabout}}
+                </div>
+            </div>
+        </div>
+        <hr class="m-0">
+    </div>
+    <!-- Header -->
+
+    <div class="row">
+        <div class="col">
+            <!-- Info -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-md-3 text-muted">Full Name</div>
+                        <div class="col-md-9">
+                          {{user.sfirstname}}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-3 text-muted">Email</div>
+                        <div class="col-md-9">
+                            {{user.semail}}
+
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-3 text-muted">Phone</div>
+                        <div class="col-md-9">
+                            {{user.smobilenumber}}
+                        </div>
+                    </div>
+                    <h6 class="my-3">education</h6>
+                    <div class="row mb-2">
+                        <div class="col-md-3 text-muted">school name</div>
+                        <div class="col-md-9">
+                    {{userob.sschoolname}}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-3 text-muted">qualification</div>
+                        <div class="col-md-9">
+                      {{userob.squalification}}
+                        </div>
+                    </div>
+                    <h6 class="my-3">experiance</h6>
+
+                    <div class="row mb-2">
+                        <div class="col-md-3 text-muted">company</div>
+                        <div class="col-md-9">
+                            {{userob.scompany}}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-3 text-muted">role</div>
+                        <div class="col-md-9">
+                            {{userob.srole}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 text-muted">START/END DATE</div>
+                        <div class="col-md-9">
+                            {{userob.sstartdate}} TO  {{userob.senddate}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Info -->
+        </div>
+        <div class="col-xl-4">
+
+            <!-- Side info -->
+            <div class="card mb-4">
+
+                <hr class="border-light m-0">
+                <div class="card-body">
+                    <p class="mb-2">
+                        <i class="ion ion-md-desktop ui-w-30 text-center text-lighter"></i>  {{userob.stitle}}</p>
+                    <p class="mb-2">
+                        <i class="ion ion-ios-navigate ui-w-30 text-center text-lighter"></i> London, United Kingdom</p>
+                    <!-- <p class="mb-0">
+                        <i class="ion ion-md-globe ui-w-30 text-center text-lighter"></i>
+                        <a href="javascript:void(0)" class="text-body">website.com</a>
+                    </p> -->
+                </div>
+                <hr class="border-light m-0">
+                <div class="card mb-4">
+                    <div class="card-header">Skills</div>
+                    <div class="card-body">
+
+                        <div class="mb-1"> {{userob.sskill1}} <small class="text-muted">80%</small></div>
+                        <div class="progress mb-3" style="height: 4px;">
+                            <div class="progress-bar bg-secondary" style="width: 80%;"></div>
+                        </div>
+
+                        <div class="mb-1">{{userob.sskill2}} <small class="text-muted">95%</small></div>
+                        <div class="progress mb-3" style="height: 4px;">
+                            <div class="progress-bar bg-success" style="width: 95%;"></div>
+                        </div>
+
+                        <div class="mb-1">{{userob.sskill3}}<small class="text-muted">90%</small></div>
+                        <div class="progress mb-3" style="height: 4px;">
+                            <div class="progress-bar bg-warning" style="width: 90%;"></div>
+                        </div>
+
+                        <div class="mb-1">{{userob.sskill4}}<small class="text-muted">80%</small></div>
+                        <div class="progress" style="height: 4px;">
+                            <div class="progress-bar bg-danger" style="width: 80%;"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- / Side info -->
+        </div>
+    </div>
+</div>
+<!-- / Content -->
+
+
+
+</div>{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'settingsbase.html' %} {% block profile %}
+<section class="">
+
+    <div class="container">
+        <div class="row flex-lg-nowrap  ">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="e-profile">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-auto mb-3">
+                                            <div class="mx-auto" style="width: 140px;">
+                                                <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                                                    <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form action="/em_deta/" method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                        <div class="mb-3">
+                                            <input class="form-control form-control-sm" id="formFileSm" type="file" name="emimg">
+                                            <button type="submit" class="btn btn-light mt-2">upload</button>
+                                          </div>
+                                        </form>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="" class="active nav-link">details</a></li>
+                                    </ul>
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane active">
+                                       
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>COMPANY NAME</label>
+                                                                    <input class="form-control" type="text" id="ecname" placeholder="" value="{{userob.ecname}}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>EMAIL</label>
+                                                                    <input class="form-control" type="text" id="ecemail"  placeholder="" value="{{userob.ecemail}}
+                                                                    ">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col mt-3">
+                                                            <div class="form-group">
+                                                                <label>MOBILE NUMBER</label>
+                                                                <input class="form-control" type="text" id="ecmobilenumber"  placeholder="" value="{{userob.ecmobilenumber}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col mt-3">
+                                                            <div class="form-group">
+                                                                <label>WORK ADDRESS</label>
+                                                                <input class="form-control" type="text" id="ecaddress"  placeholder="" value="{{userob.ecaddress}}">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col mt-3">
+                                                            <div class="form-group">
+                                                                <label>WEBSITE</label>
+                                                                <input class="form-control" type="text" id="ecwebsite" placeholder="" value="{{userob.ecwebsite}}">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="row mt-4">
+                                                            <div class="col mb-3">
+                                                                <div class="form-group">
+                                                                    <label>ABOUT</label>
+                                                                    <textarea class="form-control" id="ecabout" rows="5" placeholder="">{{userob.ecabout}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+
+                                                        <div class="row">
+                                                            <div class="col">
+
+                                                                <div class="row">
+                                                                    <div class="col d-flex justify-content-end">
+                                                                        <button class="btn btn-primary" type="submit" onclick="emajax()">Save Changes</button>
+                                                                    </div>
+                                                                </div>
+                                         
+
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+</section>
+{% endblock profile %}
+
+{% block escript %}
+
+
+<script >
+    console.log("hello")
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function emajax() {
+        $.ajax({
+            url: '/emajax/',
+            type: 'POST',
+            data: {
+                ecname: $('#ecname').val(),
+                ecemail: $('#ecemail').val(),
+                ecmobilenumber: $('#ecmobilenumber').val(),
+                ecaddress: $('#ecaddress').val(),
+                ecwebsite: $('#ecwebsite').val(),
+                ecabout: $('#ecabout').val(),
+                
+                
+               
+            },
+            success: function(response) {
+                alert(response.msg)
+            },
+
+        })
+    }
+
+ 
+
+
+
+
+</script>
+
+
+
+
+
+{% endblock escript %}

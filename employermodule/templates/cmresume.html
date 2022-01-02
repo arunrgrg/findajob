@@ -1,0 +1,132 @@
+{% extends 'employerbase.html' %}{% block content %}
+<section class="mt-5">
+    <h2 class="text-center mt-5 display-7 fw-bold mt-5 mb-5">ADD PROFILE</h2>
+    <div class="container">
+        <div class="row flex-lg-nowrap  justify-content-center">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="e-profile">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-auto mb-3">
+                                            <div class="mx-auto" style="width: 140px;">
+                                                <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                                                    <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form class="form" method="POST" action="/ecimg/" enctype="multipart/form-data">{% csrf_token %}
+                                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                            <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                                <div class="mt-2">
+                                                    <input class="form-control" type="file" id="formFile" name="emimg">
+                                                </div>
+                                                <button type="submit" class="btn btn-light mt-2">upload</button>
+                                            </div>
+                                        </form>
+                                            <div class="text-center text-sm-right">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="" class="active nav-link">details</a></li>
+                                    </ul>
+                                    <div class="tab-content pt-3">
+                                        <div class="tab-pane active">
+                                            <form class="form" method="POST" action="/emreum/" >{% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>COMPANY NAME</label>
+                                                                    <input class="form-control" type="text" name="ecname" placeholder="" value="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="form-group">
+                                                                    <label>EMAIL</label>
+                                                                    <input class="form-control" type="text" name="ecemail" placeholder="" value="">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col mt-3">
+                                                            <div class="form-group">
+                                                                <label>MOBILE NUMBER</label>
+                                                                <input class="form-control" type="text" name="ecmobilenumber" placeholder="" value="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col mt-3">
+                                                            <div class="form-group">
+                                                                <label>WORK ADDRESS</label>
+                                                                <input class="form-control" type="text" name="ecaddress" placeholder="" value="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col mt-3">
+                                                            <div class="form-group">
+                                                                <label>WEBSITE</label>
+                                                                <input class="form-control" type="text" name="ecwebsite" placeholder="" value="">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="row mt-4">
+                                                            <div class="col mb-3">
+                                                                <div class="form-group">
+                                                                    <label>ABOUT</label>
+                                                                    <textarea class="form-control" rows="5" placeholder="" name="ecabout"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+
+                                                        <div class="row">
+                                                            <div class="col">
+
+                                                                <div class="row">
+                                                                    <div class="col d-flex justify-content-end">
+                                                                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                                                                    </div>
+                                                                </div>
+                                            </form>
+
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+</section>
+
+{% endblock %}
+
+{% block escript %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock escript %}
+

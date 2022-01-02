@@ -1,0 +1,222 @@
+{% extends 'myprofileebase.html' %}{% block profile %}
+
+{% comment %} {% block img %}  <img class="img-profile img-circle img-responsive center-block" src="/usermodule/media/{{img.simg}}" alt="">   
+
+
+{% endblock %}  {% endcomment %}
+<form action="/profile_edit/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="mb-3">
+    <input class="form-control form-control-sm" id="formFileSm" type="file" name="img">
+    <button type="submit" class="btn btn-light mt-2">upload</button>
+  </div>
+</form>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-4">
+                        <label>NAME</label>
+                        <input class="form-control" type="text" id="sname"  placeholder="" value="{{user.sfirstname}}">
+                    </div>
+                </div>
+                <div class="form-group mb-4">
+                    <label>EMAIL</label>
+                    <input class="form-control" type="text"  id="semail" placeholder="  " value=" {{user.semail}}">
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>PHONE</label>
+                        <input class="form-control" type="text"  id="sphone" placeholder="  " value=" {{user.smobilenumber}}">
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="form-group">
+                        <label>TITLE</label>
+                        <input class="form-control" type="text" placeholder=""id="stitle" value=" {{userob.stitle}}">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="form-group">
+                        <label>SKILLS</label>
+                        <input class="form-control mb-2" type="text" id="sskill1" placeholder="" value="{{userob.sskill1}}">
+                        <input class="form-control mb-2" type="text" id="sskill2" placeholder=""  value="{{userob.sskill2}}">
+                        <input class="form-control mb-2" type="text" id="sskill3" placeholder=""  value="{{userob.sskill3}}">
+                        <input class="form-control mb-2" type="text" id="sskill4" placeholder=""   value="{{userob.sskill4}}">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col mb-3">
+                    <div class="form-group">
+                        <label>ABOUT</label>
+                        <textarea class="form-control" rows="5" id="sabout" placeholder="" value="">{{userob.sabout}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a href="" class="active nav-link">Education</a></li>
+            </ul>
+            <div class="tab-content pt-3">
+                <div class="tab-pane active">
+                    <form class="form" novalidate="">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row mt-4">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>SCHOOL NAME</label>
+                                            <input class="form-control" type="text" id="sschool"  placeholder="   " value="{{userob.sschoolname}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label>
+                                             QUALIFICATION</label>
+                                            <input class="form-control" type="text" id="squalification" placeholder=" " value=" {{userob.squalification}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col mb-3">
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a href="" class="active nav-link">EXPERIANCE</a></li>
+                    </ul>
+                    <div class="tab-content pt-3">
+                        <div class="tab-pane active">
+                            <form class="form" novalidate="">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="row mt-4">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>COMPANY</label>
+                                                    <input class="form-control" id="scompany" type="text"  placeholder="      " value="{{userob.scompany}}">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>
+                                                      ROLE</label>
+                                                    <input class="form-control" id="srole" type="text" placeholder="  " value="{{userob.srole}}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>
+                                                       START DATE</label>
+                                                    <input class="form-control" id="sstartdate" type="date" placeholder="  "  value="  {{userob.sstartdate}}">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>
+                                                       END DATE</label>
+                                                    <input class="form-control" id="senddate" type="date" placeholder="" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col mb-3">
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-end">
+                            <button class="btn btn-primary" type="submit" onclick="fnajax()">Save Changes</button>
+                        </div>
+                    </div>
+         
+                {% comment %} <form class="form">
+                   
+                <input type="text" placeholder="name" id="name">
+                <input type="text" placeholder="email" id="ssemail">
+                <input type="text" placeholder="place" id="place">
+                <button onclick="fninsert()">submit</button>
+                <button onclick="fncheck()">c</button> {% endcomment %}
+            </form>
+                    {% endblock profile %}
+                    {% block ajax %}   {% endblock %}
+                    {% block script %}
+                    
+                    <script >
+                        console.log("hello")
+                        $.ajaxSetup({
+                            headers: {
+                                "X-CSRFToken": '{{csrf_token}}'
+                            }
+                        });
+            
+                        function fnajax() {
+                            $.ajax({
+                                url: '/ajax/',
+                                type: 'POST',
+                                data: {
+                                    name: $('#sname').val(),
+                                    email: $('#semail').val(),
+                                    phone: $('#sphone').val(),
+                                    title: $('#stitle').val(),
+                                    skill1: $('#sskill1').val(),
+                                    skill2: $('#sskill2').val(),
+                                    skill3: $('#sskill3').val(),
+                                    skill4: $('#sskill4').val(),
+                                    about: $('#sabout').val(),
+                                    school: $('#sschool').val(),
+                                    qualification: $('#squalification').val(),
+                                    company: $('#scompany').val(),
+                                    role: $('#srole').val(),
+                                    startdate: $('#sstartdate').val(),
+                                    enddate: $('#senddate').val(),
+                                   
+                                   
+                                },
+                                success: function(response) {
+                                    alert(response.msg)
+                                },
+                
+                            })
+                        }
+                
+                     
+                  
+                    
+                    
+                    
+                </script>
+                    
+                    
+                    
+                    
+                    {% endblock %}
+
+             

@@ -1,0 +1,45 @@
+{% extends 'settingsbase.html' %} {% block profile %}
+<div class="section mt-2">
+    <h2 class="text-center mt-5 display-7 fw-bold mt-2  mb-5">JOB POSTS</h2>
+    <div class="container justify-content-center">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-12 ">
+                <div class="row gutters-sm ">
+                    {% for employermodule_emplor_postjob  in emplor %}
+                    <div class="card   mb-5 py-2">
+                        <div class="card-body  ">
+                            <div class="row no-gutters  ">
+                                <div class="col mr-2 d-flex   justify-content-between align-items-center">
+                                    <div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            {{ employermodule_emplor_postjob.jobtitile }}
+                                        </div>
+                                        <span class="badge badge-success  bg-info">
+                                        {{ employermodule_emplor_postjob.companyname }}</span>
+                                        <span class="badge badge-success bg-success">
+                                            ${{ employermodule_emplor_postjob.salary }}</span>
+                                        <span class="badge badge-success bg-success">
+                                            {{ employermodule_emplor_postjob.experiance }}</span>
+                                    </div>
+                                    <div class=""><i class="bi bi-geo-alt">{{ employermodule_emplor_postjob.location }}</i></div>
+                                    <div class="">
+                                        <span class="badge bg-danger bg-success">
+                                            {{ employermodule_emplor_postjob.jobtype }}</span>
+                                    </div>
+                                    <div class="">
+                                        <a href="/deletejbpst/{{ employermodule_emplor_postjob.id }}"> <span class="badge rounded-pill bg-warning text-dark">delete</span> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    {% endfor %}
+                </div>
+            </div>
+
+      
+    </div>
+</div>
+
+{% endblock profile %}

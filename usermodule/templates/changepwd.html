@@ -1,0 +1,80 @@
+{% extends 'myprofileebase.html' %}{% block n %} {{user.sfirstname}} {% endblock %} {% block profile %}
+<div class="col">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="form-group">
+                <label>Current password</label>
+                <input class="form-control" type="text" name="name" placeholder="" value="" id="scupassword">
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <div class="form-group">
+                <label>
+                    New password</label>
+                <input class="form-control" type="text" placeholder="" id="snewpassword">
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="form-group">
+                <label>
+                    Repeat new password</label>
+                <input class="form-control" type="text" placeholder="">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col mb-3">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" onclick="chpwd()">Save changes</button>&nbsp;
+            </div>
+        </div>
+    </div>
+</div>{% endblock profile %}
+
+
+
+{% block script %}
+                    
+<script >
+    console.log("hello")
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function chpwd() {
+        $.ajax({
+            url: '/change_pwd/',
+            type: 'POST',
+            data: {
+                cupwd: $('#scupassword').val(),
+                newpassword: $('#snewpassword').val(),
+               
+                              
+            },
+            success: function(response) {
+                alert(response.msg)
+            },
+
+        })
+    }
+
+ 
+
+
+
+
+</script>
+
+
+
+
+{% endblock %}
+

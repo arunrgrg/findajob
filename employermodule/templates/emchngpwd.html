@@ -1,0 +1,78 @@
+{% extends 'settingsbase.html' %} {% block profile %}
+<div class="col">
+    <div class="row mt-4">
+        <div class="col">
+            <div class="form-group">
+                <label>Current password</label>
+                <input class="form-control" type="text" id="ecupassword" placeholder="" value="">
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <div class="form-group">
+                <label>
+                    New password</label>
+                <input class="form-control" type="text" id="enewpassword" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <div class="form-group">
+                <label>
+                    Repeat new password</label>
+                <input class="form-control" type="text"   placeholder="">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col mb-3">
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" onclick="echpwd()">Save changes</button>&nbsp;
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock profile %}
+
+
+{% block escript %}
+
+
+
+
+
+
+<script >
+    console.log("hello")
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function echpwd() {
+        $.ajax({
+            url: '/ch_pwd/',
+            type: 'POST',
+            data: {
+                ecupwd: $('#ecupassword').val(),
+                enewpassword: $('#enewpassword').val(),
+               
+                              
+            },
+            success: function(response) {
+                alert(response.msg)
+            },
+
+        })
+    }
+
+ 
+</script>
+
+
+{% endblock escript %}

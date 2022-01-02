@@ -1,0 +1,88 @@
+{% extends 'userbase.html' %}{% block content %}
+
+
+
+
+
+<section class="mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-4 ">
+            <div class=" d-flex justify-content-between">
+                <h4 class="mb-5 text-primary">EMPLOYEE REGISTRATION</h4>
+            </div>
+            <form class="" id="employ-reg">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input name="firstname" type="text" class="form-control" id="sfirstName" placeholder="">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Last name</label>
+                        <input name="lname" type="text" class="form-control" id="slastName" placeholder="">
+                    </div>
+                    <div class="col-12">
+                        <label for="email" class="form-label">Email </label>
+                        <input name="email" type="email" class="form-control" id="semail">
+                    </div>
+                    <div class="col-12">
+                        <label for="password" class="form-label">password</label>
+                        <input name="password" class="form-control " id="spassword">
+                    </div>
+                    <div class="col-12">
+                        <label for="con_password" class="form-label ">confirm password</label>
+                        <input name="con_password" type="text" class="form-control " id="scon_password">
+                    </div>
+                    <div class="col-12">
+                        <label for="" class="form-label">mobile number</label>
+                        <input name="mobilenum" type="text" class="form-control " id="smobilenumber">
+                    </div>
+
+                </div>
+                <hr class="my-4 ">
+                <button class="w-100 btn btn-primary btn-lg" type="submit" >Registration</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% comment %} 
+<script>
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function fninsert() {
+        $.ajax({
+            url: '/emply_reg/',
+            type: 'POST',
+            data: {
+                sfirstname: $('#sfirstname').val(),
+                slastname: $('#slastnameemail').val(),
+                spassword: $('#semail').val(),
+                smobilenum: $('#spassword').val(),
+                smobilenum: $('#smobilenumber').val()
+            },
+            success: function(response) {
+                alert(response.msg)
+            },
+
+        })
+    }
+
+
+
+
+
+    // var month = ['', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+    //         var mn = "<option value='0'>{{msg.date_ofbi.month}}</option>";
+    //         for (i = 0; i < month.length; i++) {
+    //             mn += "<option value='" + month[i] + "'>" + month[i] + "</option>";
+    //         }
+    //         document.getElementById('cmonth').innerHTML = mn;
+
+    //     }
+</script> {% endcomment %}
+
+
+{% endblock %}

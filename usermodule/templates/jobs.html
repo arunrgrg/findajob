@@ -1,0 +1,56 @@
+{% extends 'userhome.html' %} {% load static %} {% block n %} {{user.sfirstname}} {% endblock %} 
+
+
+
+{% block search %}
+
+<section class="section-5 mt-5">
+    <div class="container cn">
+        <div class="col-md-12 text-center pb-4">
+            <h3 class="mb-3">latest jobs</h3>
+        </div>
+        <div class="row rw">
+            <div class="card mb-5 py-2">
+                <div class="card-body  ">
+                    <div class="row no-gutters">
+                        {% for obj in myFilter.qs %}
+                        <div class="card   mb-5 py-2">
+                            <div class="card-body  ">
+                                <div class="row no-gutters">
+                                    <div class="col mr-2 d-flex justify-content-between align-items-center">
+                                        <img class="img-profile img-circle img-responsive center-block" style="max-width:10%;" src="/static/media/{{ obj.companyimage }}" alt="">
+                                        <div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                {{ obj.jobtitile }}
+                                            </div>
+                                            <span class="badge badge-success bg-info">
+                                                        {{ obj.salary}}
+                                                        </span>
+                                            <span class="badge badge-success bg-success">
+                                                        ${{ obj.salary }}</span>
+                                            <span class="badge badge-success bg-success">
+                                                        {{ obj.experiance }}</span>
+                                        </div>
+                                        <div class=""><i class="bi bi-geo-alt">{{ obj.location }}</i></div>
+                                        <div class="">
+                                            <span class="badge bg-danger bg-success">
+                                                        {{ obj.jobtype }}</span>
+                                        </div>
+                                        <div class="">
+                                            <a href="/viewjob/{{ obj.id }}"> <span class="badge rounded-pill bg-warning text-dark">view</span> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section> 
+
+{% endblock search %}

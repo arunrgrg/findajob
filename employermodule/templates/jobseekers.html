@@ -1,0 +1,31 @@
+{% extends 'employerbase.html' %}{% block content %}
+<div class="section mt-5">
+    <h2 class="text-center mt-5 display-7 fw-bold mt-5 pt-5 mb-5">JOB SEEKERS</h2>
+    <div class="container">
+        <div class="row d-flex justify-content-between mb-5">
+            {% for usermodule_seeker_reg  in seeker %}
+            <div class="col-md-3 ">
+                <div class="row gutters-sm ">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>{{ usermodule_seeker_reg.sfirstname }}</h4>
+                                    <p class="text-secondary mb-1">Full Stack Developer</p>
+                                    <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                                    <button class="btn btn-outline-primary">view</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>          
+
+
+    {% endblock %}

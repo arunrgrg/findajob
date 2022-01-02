@@ -1,0 +1,130 @@
+ {% extends 'basead.html' %}{% block content %}
+
+
+<section>
+    
+    <div class="container-fluid mt-5 ">
+        <div class="table-responsive ">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h2>User <b>Management</b></h2>
+                        </div>
+                        <div class="col-sm-7">
+                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="mt-5 pt-5">
+                    <table id="myTable" class="display">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>last name</th>
+                                <th>email</th>
+                                <th>password</th>
+                                <th>mobile number</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                {% for usermodule_seeker_reg in seeker %}
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td>{{ usermodule_seeker_reg.id }}</td>
+                                <td>{{ usermodule_seeker_reg.slastname }}</td>
+                                <td>{{ usermodule_seeker_reg.semail }}</td>
+                                <td>{{ usermodule_seeker_reg.spassword }}</td>
+                                <td>{{ usermodule_seeker_reg.smobilenumber }}</td>
+                                <td>
+                                    <a class="btn btn-danger" href="/deletese/{{ usermodule_seeker_reg.id }}" role="button" onclick="return confirm(' Are you sure you want to delete this account?')"><i class="material-icons">&#xE5C9;</i></a>
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+               
+
+
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card l-bg-cherry">
+                            <div class="card-statistic-3 p-4">
+                                <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-0">total job seekers</h5>
+                                </div>
+                                <div class="row align-items-center mb-2 d-flex">
+                                    <div class="col-8">
+                                        <h2 class="d-flex align-items-center mb-0">
+                                            32
+                                        </h2>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span>12.5% <i class="fa fa-arrow-up"></i></span>
+                                    </div>
+                                </div>
+                                <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                                    <div class="progress-bar l-bg-cyan" role="progressbar" data-width="5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 8%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card l-bg-cherry">
+                            <div class="card-statistic-3 p-4">
+                                <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="mb-4">
+                                    <h5 class="card-title mb-0">new job seekers</h5>
+                                </div>
+                                <div class="row align-items-center mb-2 d-flex">
+                                    <div class="col-8">
+                                        <h2 class="d-flex align-items-center mb-0">
+                                            3
+                                        </h2>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <span>12.5% <i class="fa fa-arrow-up"></i></span>
+                                    </div>
+                                </div>
+                                <div class="progress mt-1 " data-height="" style="height: 8px;">
+                                    <div class="progress-bar l-bg-cyan" role="progressbar" data-width="" aria-valuenow="" aria-valuemin="0" aria-valuemax="" style="width: 2%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> 
+
+
+</section>
+
+
+
+
+
+
+
+
+
+{% endblock %}

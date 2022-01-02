@@ -1,0 +1,48 @@
+{% extends 'employerbase.html' %}{% load static %} {% block content %}
+<div class="section mt-2">
+    <h2 class="text-center mt-5 display-7 fw-bold mt-2  mb-5">JOB POSTS</h2>
+    <div class="container justify-content-center">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-md-8 ">
+                <div class="row gutters-sm ">
+                    {% for employermodule_emplor_postjob in emplor %}
+                    <div class="card   mb-5 py-2">
+                        <div class="card-body  ">
+                            <div class="row no-gutters  ">
+                                <div class="col mr-2 d-flex   justify-content-between align-items-center">
+                                    <img class="img-profile img-circle img-responsive center-block" style="max-width:20%;" src="/static/media/{{img.eimg}}" alt="">
+                                    <div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            {{ employermodule_emplor_postjob.jobtitile }}
+                                        </div>
+                                        <div class="mt-2">
+                                            <button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">{{ employermodule_emplor_postjob.companyname }}</button>
+
+                                            <button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">  ${{ employermodule_emplor_postjob.salary }}</button>
+
+
+                                            <button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">  {{ employermodule_emplor_postjob.experiance }}</button>
+                                        </div>
+                                    </div>
+                                    <div class=""><i class="bi bi-geo-alt">{{ employermodule_emplor_postjob.location }}</i></div>
+                                    <div class="">
+                                        <span class="badge bg-danger bg-success">
+                                            {{ employermodule_emplor_postjob.jobtype }}</span>
+                                    </div>
+                                    <div class="">
+                                        <a href="/jobdeem/{{ employermodule_emplor_postjob.id }}"> <span class="badge rounded-pill bg-warning text-dark">view</span> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    {% endblock %}

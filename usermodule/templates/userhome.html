@@ -1,0 +1,207 @@
+ {% extends 'userbase.html' %} {% load static %} {% block n %} {{user.sfirstname}} {% endblock %} {% block content %}
+
+<!-- maincontent -->
+<section class="section-start">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center ">
+        <div class="col-md-5 p-lg-5 mx-auto my-5 col-lg-6">
+            <h1 class="display-4 fw-normal">The Easiest Way to Get Your New Job</h1>
+
+
+            <form method="get" class="form-group mt-5">
+                <div class="">
+                    {{ myFilter.form.jobtitile }} {{ myFilter.form.location}}
+
+                </div>
+
+
+                <button class="btn btn-light mt-2" href="{% url 'jobsearch' %}" type="submit" onclick="myFunction()">search</button>
+            </form>
+
+        </div>
+
+    </div>
+</section>
+<!-- section-1 -->
+{% block search %}
+<section class="mt-5  section-1">
+    <div class="container p-3">
+
+        <div class="row pt-2" id="myDIV">
+            <div class="col-md-12 text-center pb-5">
+                <h3>Browse categories</h3>
+            </div>
+
+            <div class="col col-lg-3">
+                <a href="/categorys/Real Estate">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <span class="material-icons-outlined" style="font-size: 4em;">
+                            home
+                            </span>
+                            <h5 class="card-title">Real Estate</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col col-lg-3">
+                <a href="/categorys/marketing">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <span class="material-icons-outlined " style="font-size: 4em;">
+                            language
+                            </span>
+                            <h5 class="card-title">sale/marketing</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col col-lg-3">
+                <a href="/categorys/education">
+                    <div class="card text-center " style="width: 18rem;">
+                        <div class="card-body">
+                            <span class="material-icons-outlined " style="font-size: 4em;">
+                            school
+                            </span>
+                            <h5 class="card-title">education/training</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col col-lg-3">
+                <a href="/categorys/healthcare">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+
+                            <span class="material-icons-outlined " style="font-size: 4em;">
+                            health_and_safety
+                            </span>
+                            <h5 class="card-title">healthcare</h5>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row pt-2">
+
+            <div class="col col-lg-3">
+                <a href="/categorys/science">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <span class="material-icons-outlined " style="font-size: 4em;">
+                            science
+                            </span>
+
+                            <h5 class="card-title">science</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col col-lg-3">
+                <a href="/categorys/Technologies">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <span class="material-icons-outlined " style="font-size: 4em;">
+                            computer
+                            </span>
+                            <h5 class="card-title">Technologies</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col col-lg-3">
+                <a href="/categorys/Design">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <span class="material-icons-outlined " style="font-size: 4em;">
+                            brush
+                            </span>
+                            <h5 class="card-title">art/Design</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col col-lg-3">
+                <a href="/categorys/food services">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <span class="material-icons-outlined " style="font-size: 4em;">
+                           restaurant
+                            </span>
+                            <h5 class="card-title">food services</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- section-3 -->
+<section class="section-5 mt-5">
+    <div class="container cn">
+        <div class="col-md-12 text-center pb-4">
+            <h3 class="mb-3">latest jobs</h3>
+        </div>
+        <div class="row rw">
+            <div class="card mb-5 py-2">
+                <div class="card-body  ">
+                    <div class="row no-gutters">
+                        {% for obj in myFilter.qs %}
+                        <div class="card   mb-5 py-2">
+                            <div class="card-body  ">
+                                <div class="row no-gutters">
+                                    <div class="col mr-2 d-flex justify-content-between align-items-center">
+                                        <img class="img-profile img-circle img-responsive center-block" style="max-width:10%;" src="/static/media/{{ obj.companyimage }}" alt="">
+                                        <div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                {{ obj.jobtitile }}
+                                            </div>
+
+                                            <button type="button" class="btn btn-outline-success btn-sm" style="background: #00ff002b;">{{ obj.companyname}}</button>
+
+
+
+
+                                            <button type="button" class="btn btn-outline-primary btn-sm" style="background: #007bff33;">  ${{ obj.salary }}</button>
+
+
+                                            <button type="button" class="btn btn-outline-danger btn-sm" style="background: #dc35452e;">   {{ obj.experiance }}</button>
+
+                                        </div>
+                                        <div class=""><i class="bi bi-geo-alt">{{ obj.location }}</i></div>
+                                        <div class="">
+                                            <span class="badge bg-danger bg-success">
+                                                        {{ obj.jobtype }}</span>
+                                        </div>
+                                        <div class="">
+                                            <a href="/viewjob/{{ obj.id }}"> <span class="badge rounded-pill bg-warning text-dark">view</span> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+{% endblock search %}
+<!-- section-3-end -->
+
+{% endblock %} {% block script %}
+<script>
+    document.getElementById("id_jobtitile").classList.add('form-control');
+    document.getElementById("id_jobtitile").placeholder = 'search your job'
+    document.getElementById("id_location").classList.add('form-select');
+    document.getElementById("id_location").classList.add('form-select-sm');
+</script>
+
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'userbase.html' %}{% block n %} {{user.sfirstname}} {% endblock %} {% block content %}
+
+
+
+<section class=" pt-4 mb-5 pb-5">
+
+
+
+
+    <h2 class="text-center mt-5 display-7 fw-bold">JOB LIST</h2>
+    <div class="container">
+        <div class="row ">
+            <form method="get" class="">
+                <div class="col-md-3 mt-5 ">
+                    <h5 class="pt-3">sort by</h5>
+                    <div class=" mb-4 mt-4">
+                        <label for="country" class="form-label pb-2">location</label>
+                        <div class="card card-body">
+                            {{ myFilter.form.location}}
+                        </div>
+                    </div>
+                    <div class=" mb-4">
+                        <div class=" mb-4 mt-4">
+                            <label for="country" class="form-label">job type</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.jobtype}}
+                            </div>
+                            </select>
+                        </div>
+                        <div class="list-group">
+                            <label for="country" class="form-label">experiance</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.experiance}}
+                            </div>
+                        </div>
+                        <div class=" mt-4 pt-3">
+                            <label for="country" class="form-label">Job Type</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.companyname}}
+                            </div>
+                        </div>
+                        <div class=" mt-4 pt-3">
+                            <label for="country" class="form-label">salary</label>
+                            <div class="card card-body">
+                                {{ myFilter.form.salary}}
+                            </div>
+                            <button type="submit">typee</button>
+            </form>
+            </div>
+            </div>
+
+
+            <!-- sidebar end -->
+
+            <!-- job list -->
+            <div class="col-md-8 mt-5 pt-2 mb-5 ml-5">
+                <div class="card   mb-5 py-2">
+                    <div class="card-body  ">
+                        <div class="row no-gutters  ">
+                            {% for obj in myFilter.qs %}
+                            <div class="card   mb-5 py-2">
+                                <div class="card-body  ">
+                                    <div class="row no-gutters  ">
+                                        <div class="col mr-2 d-flex   justify-content-between align-items-center">
+                                            <img class="img-profile img-circle img-responsive center-block" style="max-width:10%;" src="/static/media/{{ obj.companyimage }}" alt="">
+                                            <div>
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    {{ obj.jobtitile }}
+                                                </div>
+                                                <span class="badge badge-success  bg-info">
+                                                    {{ obj.salary}}
+                                                    </span>
+                                                <span class="badge badge-success bg-success">
+                                                    ${{ obj.salary }}</span>
+                                                <span class="badge badge-success bg-success">
+                                                    {{ obj.experiance }}</span>
+                                            </div>
+                                            <div class=""><i class="bi bi-geo-alt">{{ obj.location }}</i></div>
+                                            <div class="">
+                                                <span class="badge bg-danger bg-success">
+                                                    {{ obj.jobtype }}</span>
+                                            </div>
+                                            <div class="">
+
+                                                <a href="/viewjob/{{ obj.id }}"> <span class="badge rounded-pill bg-warning text-dark">view</span> </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            </div>
+        </div>
+        <!-- job list -->
+</section>
+
+
+
+
+
+
+
+{% endblock %} {% block script %}
+
+<script>
+    function locationa() {
+        var month = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka',
+            'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal'
+        ]
+        var mn = "<option selected disabled value>choose...</option>";
+        for (i = 0; i < month.length; i++) {
+            mn += "<option value='" + month[i] + "'>" + month[i] + "</option>";
+        }
+        document.getElementById('state').innerHTML = mn;
+
+
+
+    }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'employerbase.html' %}{% load static %} {% block style %}
+<link rel="stylesheet" href="{% static 'css/editprofile.css' %}">{% endblock %}{% block content %}
+<div class="container gg mt-5 pt-5">
+    <div class="view-account">
+        <section class="module">
+            <div class="module-inner">
+                <div class="side-bar">
+                    <div class="user-info">
+                       <img class="img-profile img-circle img-responsive center-block" src="/static/media/{{img.eimg}}" alt="">    
+                               <ul class="meta list list-unstyled">
+                                   <li class="name"> {{user.sfirstname}}
+                                       {% comment %} <label class="label label-info">UX Designer</label> {% endcomment %}
+                                   </li>
+                               </ul>
+                           </div>
+                    <nav class="side-menu">
+                        <ul class="nav">
+                            <li class="active"><a href="{% url 'emsettings' %}"><span class="fa fa-user"></span>PROFILE</a></li>
+                            <li><a href="{% url 'deatailch' %}"><span class="fa fa-cog"></span>EDIT PROFILE</a></li>
+                            <li><a href="{% url 'chngjbpst' %}"><span class="fa fa-cog"></span>DELETE JOBPOST</a></li>
+                            <li><a href="{% url 'chcmpwd' %}"><span class="fa fa-credit-card"></span>CHANGE PASSWORD</a></li>
+                            <li><a href="#"><span class="fa fa-envelope"></span> Messages</a></li>
+
+                            <li><a href=""><span class="fa fa-th"></span> Drive</a></li>
+                            <li><a href="#"><span class="fa fa-clock-o"></span> Reminders</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="content-panel">
+                    {% block profile %}
+                    <div class="row">
+                        <div class="col">
+                            <!-- Info -->
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">company  Name</div>
+                                        <div class="col-md-9">
+                                            {{userob.ecname}}
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">Email</div>
+                                        <div class="col-md-9">
+                                            {{userob.ecemail}}
+
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-3 text-muted">Phone</div>
+                                        <div class="col-md-9">
+                                            {{userob.ecmobilenumber}}
+                                        </div>
+                                    </div>
+                                  
+                                    
+
+                                    <div class="card-body">
+                                        <p class="mb-2">
+                                            <i class="ion ion-md-desktop ui-w-30 text-center text-lighter"></i>  {{userob.stitle}}</p>
+                                        <p class="mb-2 text-info">
+                                            <i class="ion ion-ios-navigate ui-w-30 text-center  text-info"></i> website</p> 
+                                         <p class="mb-0">
+                                        
+                                        </p> 
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3 text-muted">   {{userob.ecwebsite}}</div>
+                                        <div class="col-md-9">
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- / Info -->
+                        </div>
+                        <div class="col-xl-4">
+                            <!-- Side info -->
+                            <div class="card mb-4">
+                                <hr class="border-light m-0">
+                                <div class="card-body">
+                                    <p class="mb-2">
+                                        <i class="ion ion-md-desktop ui-w-30 text-center text-lighter"></i>  {{userob.stitle}}</p>
+                                    <p class="mb-2 text-info">
+                                        <i class="ion ion-ios-navigate ui-w-30 text-center  text-info"></i> ABOUT</p> 
+                                     <p class="mb-0">
+                                        {{userob.ecabout}}
+                                    </p> 
+                                </div>
+                                <hr class="border-light m-0">
+                          
+                            </div>
+                            <div class="card mb-4">
+                                <hr class="border-light m-0">
+                                <div class="card-body">
+                                    <p class="mb-2">
+                                        <i class="ion ion-md-desktop ui-w-30 text-center text-lighter"></i>  {{userob.stitle}}</p>
+                                    <p class="mb-2 text-info">
+                                        <i class="ion ion-ios-navigate ui-w-30 text-center  text-info"></i> ADDRESS</p> 
+                                     <p class="mb-0">
+                                        {{userob.ecaddress}}
+                                    </p> 
+                                </div>
+                                <hr class="border-light m-0">
+                          
+                            </div>
+                            <!-- / Side info -->
+                        </div>
+                    </div>
+                </div>
+                <!-- / Content -->
+            </div>
+                    {% endblock profile %}
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
