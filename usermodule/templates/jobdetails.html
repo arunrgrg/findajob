@@ -1,4 +1,4 @@
-{% extends 'userbase.html' %}{% block content %}
+{% extends 'userbase.html' %}{% block n %} {{user.sfirstname}} {% endblock %}{% block content %}
 
 
 
@@ -21,14 +21,15 @@
                         <h4 class="fw-normal mb-3">Job Description</h4>
                         <p class="fw-light lead">{{ emplor.jobdescription }}
                         </p>
+                      
                         <div class="mt-5">
                             <h4 class="fw-normal mb-4 ">Required Knowledge, Skills, and Abilities</h4>
                             <ul>
                                 <li class="fw-light  lead"> {{ emplor.skill1 }}</li>
-                                <li class="fw-light lead">{{ emplor.skill1 }} </li>
-                                <li class="fw-light lead">{{ emplor.skill1 }} </li>
+                                <li class="fw-light lead">{{ emplor.skill2 }} </li>
+                                <li class="fw-light lead">{{ emplor.skill3 }} </li>
                                 <li class="fw-light lead"> 
-                                    {{ emplor.skill1 }}
+                                    {{ emplor.skill4 }}
                                 </li>
                               
                             </ul>
@@ -51,6 +52,8 @@
                     </div>
                 </div>
             </div>
+           
+              
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
@@ -64,12 +67,16 @@
                         <span><i class="bi bi-mortarboard"></i>Qualification</span>
                         <p class="fw-light">{{ emplor.qualification }}</p>
                         {% comment %} <a class="btn btn-primary btn-lg mt-4 w-100" href="" role="button">Apply Now</a> {% endcomment %}
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            employer
+                          </button>  
                         <form action="{% url 'viewjobd' emplor.id %}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="jobid" value="{{ emplor.id }}">
                             <input type="submit" class="btn btn-primary btn-lg mt-4 w-100"
                                    value="Apply for this job"/>
-                        </form> 
+                        </form>
+                      
                     </div>
                 </div>
             </div>
@@ -79,7 +86,46 @@
 
 
 
+<!-- Button trigger modal -->
 
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">EMPLOYER DETAILS</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class=" col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <center class="m-t-30"> <img src="/static/media/{{emplor.companyimage}}" class="img-circle" width="150">
+                            <h4 class="card-title m-t-10">{{ emplor.companyname }}</h4>
+                            <small class="text-muted">{{ emplor.employerid.em_reid.ecabout }}</small>
+ 
+                            </div>
+                        </center>
+                    </div>
+                    <div>
+                    <hr> </div>
+                    <div class="card-body"> <small class="text-muted">Email address </small>
+                        <h6>{{ emplor.employerid.em_reid.ecemail }}</h6> <small class="text-muted p-t-30 db">Phone</small>
+                        <h6>{{ emplor.employerid.em_reid.ecmobilenumber }}</h6> <small class="text-muted p-t-30 db">Address</small>
+                        <h6>{{ emplor.employerid.em_reid.ecaddress }}</h6>
+                        <small class="text-muted p-t-30 db">website</small>
+                        <h6>{{ emplor.employerid.em_reid.ecwebsite }}</h6>
+                        <br>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

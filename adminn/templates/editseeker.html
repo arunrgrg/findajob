@@ -1,0 +1,91 @@
+{% extends 'basead.html' %}{% block content %}
+
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+
+                <a class="btn btn-primary" href="{% url 'employad' %}" role="button">close</a>
+            </div>
+            <div class="modal-body">
+                <form action="">
+
+                    <div class="col-sm-12">
+                        <label for="jobtitle" class="form-label">first name</label>
+                        <input name="jobtitle" type="text" class="form-control" id="sfirstname" value="{{detail.sfirstname}}" placeholder="" required>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="com_name" class="form-label">last name</label>
+                        <input name="com_name" type="text" class="form-control" id="slastname" value="{{detail.slastname}}" placeholder=" " required>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="jobtitle" class="form-label">email</label>
+                        <input name="jobtitle" type="text" class="form-control" id="semail" value="{{detail.semail}}" placeholder="" required>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="com_name" class="form-label">password</label>
+                        <input name="com_name" type="text" class="form-control" id="spassword" value="{{detail.spassword}}" placeholder=" " required>
+                    </div>
+                    <div class="col-sm-12">
+                        <label for="com_name" class="form-label">mobile number</label>
+                        <input name="com_name" type="text" class="form-control" id="smobile" value="{{detail.smobilenumber}}" placeholder=" " required>
+                    </div>
+
+                    <input name="com_name" type="hidden" class="form-control" id="id" value="{{detail.id}}">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="empostajax()">update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %} {% block adscript %}
+
+
+<script>
+    $(window).on('load', function() {
+        $('#myModal').modal('show');
+    });
+
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function empostajax() {
+        $.ajax({
+            url: '/editseeker/',
+            type: 'POST',
+            data: {
+                sfirstname: $('#sfirstname').val(),
+                slastname: $('#slastname').val(),
+                semail: $('#semail').val(),
+                spassword: $('#spassword').val(),
+                smobile: $('#smobile').val(),
+                id: $('#id').val(),
+            },
+        })
+    }
+</script>
+
+
+
+{% endblock adscript %}

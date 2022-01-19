@@ -7,7 +7,6 @@
                 <input class="form-control" type="text" name="name" placeholder="" value="" id="scupassword">
             </div>
         </div>
-
     </div>
     <div class="row mt-4">
         <div class="col">
@@ -18,7 +17,6 @@
             </div>
         </div>
     </div>
-
     <div class="row mt-4">
         <div class="col">
             <div class="form-group">
@@ -48,33 +46,20 @@
             "X-CSRFToken": '{{csrf_token}}'
         }
     });
-
     function chpwd() {
         $.ajax({
             url: '/change_pwd/',
             type: 'POST',
             data: {
                 cupwd: $('#scupassword').val(),
-                newpassword: $('#snewpassword').val(),
-               
-                              
+                newpassword: $('#snewpassword').val(),                   
             },
             success: function(response) {
                 alert(response.msg)
             },
-
         })
     }
-
- 
-
-
-
-
 </script>
-
-
-
 
 {% endblock %}
 

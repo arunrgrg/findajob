@@ -1,0 +1,67 @@
+{% extends 'employerbase.html' %}{% block content %}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey mt-5 pt-5">
+    <div class="row">
+        <h2 class="text-muted">Welcome to our blog</h2>
+        <div class="mt-4">
+            <form action="/blogem/" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                <div class=" mb-3 ">
+                    <label for="formFile " class="form-label "></label>
+                    <input type="file" class="form-control" id="inputGroupFile01" name="blogimg">
+                </div>
+                <div class="mb-3 ">
+                    <label for="exampleFormControlTextarea1 " class="form-label "></label>
+                    <textarea class="form-control" name="sblog" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="d-grid gap-2 ">
+
+                    <button type="button " class="btn btn-outline-info ">POST</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-5 ">
+        <!-- posts -->
+        {% for i in blog %}
+        <div class="col-md-8 ">
+            <div class="panel blog-container ">
+                <div class="panel-body ">
+                    <div class="image-wrapper ">
+                        <a class="image-wrapper image-zoom cboxElement " href="# ">
+                            <img src="/static/media/{{i.imgblog}}" alt="Photo of Blog ">
+                            <div class="image-overlay "></div>
+                        </a>
+                    </div>
+                    <h4></h4>
+                    <small class="text-muted ">By <a href="# "><strong>{{i.seekerblog}}</strong></a> |  Post on{{i.date}} </small>
+                    <p class="m-top-sm m-bottom-sm ">
+                      {{i.jobtext}}
+                    </p>
+                    <!-- <a href="single_post.html "><i class="fa fa-angle-double-right "></i> Continue reading</a> -->
+                    <span class="post-like text-muted tooltip-test " data-toggle="tooltip " data-original-title="I like this post! ">
+                      <i class="fa fa-heart "></i> <span class="like-count "></span>
+                    </span>
+                </div>
+            </div>          
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+ 

@@ -7,14 +7,59 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-5">
-                            <h2>User <b>Management</b></h2>
+                            <h2>employer <b>Management</b></h2>
                         </div>
                         <div class="col-sm-7">
-                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="material-icons">&#xE147;</i> <span>Add New employer</span></a>
 
                         </div>
                     </div>
                 </div> 
+
+
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                
+                                <a class="btn btn-primary" href="{% url 'emrad' %}" role="button">close</a>
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                
+                                    <div class="col-sm-12">
+                                        <label for="jobtitle" class="form-label">companyname</label>
+                                        <input name="jobtitle" type="text" class="form-control" id="companyname" value="{{detail.companyname}}" placeholder="" required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="com_name" class="form-label"> email</label>
+                                        <input name="com_name" type="text" class="form-control" id="emailid" value="{{detail.emailid}}" placeholder=" " required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="jobtitle" class="form-label">password</label>
+                                        <input name="jobtitle" type="text" class="form-control" id="epassword" value="{{detail.epassword}}" placeholder="" required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="com_name" class="form-label">mobilenumber</label>
+                                        <input name="com_name" type="text" class="form-control" id="emobilenumber" value="{{detail.emobilenumber}}" placeholder=" " required>
+                                    </div>
+                                    {% comment %} <div class="col-sm-12">
+                                        <label for="com_name" class="form-label">mobile number</label>
+                                        <input name="com_name" type="text" class="form-control" id="smobile" value="{{detail.smobilenumber}}" placeholder=" " required>
+                                    </div> {% endcomment %}
+                
+                                    <input name="com_name" type="hidden" class="form-control" id="id" value="{{detail.id}}">
+                
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" onclick="empostaj()">update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="mt-5 pt-5">
                     <table id="myTable" class="display">
@@ -39,6 +84,7 @@
         
                                 <td>{{ employermodule_emplor_reg.emobilenumber }}</td>
                                 <td>
+                                    <a class="btn btn-info" href="/editem/{{  employermodule_emplor_reg.id }}" role="button"><i class="bi bi-pencil-square"></i></a>
                                     <a class="btn btn-danger" href="/deleteem/{{ employermodule_emplor_reg.id }}" role="button" onclick="return confirm(' Are you sure you want to delete this account?')"><i class="material-icons">&#xE5C9;</i></a>
                                 </td>
 
@@ -51,27 +97,18 @@
                     </table>
                 </div>
                
-
-
-
-
-
-
-
-
-
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card l-bg-cherry">
                             <div class="card-statistic-3 p-4">
                                 <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
                                 <div class="mb-4">
-                                    <h5 class="card-title mb-0">total job seekers</h5>
+                                    <h5 class="card-title mb-0">total employers</h5>
                                 </div>
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            32
+                                            {{count}}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
@@ -95,7 +132,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            3
+                                            {{count}}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
@@ -110,15 +147,37 @@
                     </div>
                 </div>
 
-
             </div> 
-
 
 </section>
 
 
 
-
-
-
 {% endblock %}
+
+{% block adscript %}
+<script>
+    
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+function empostaj() {
+    $.ajax({
+        url: '/em_ad/',
+        type: 'POST',
+        data: {
+            companyname: $('#companyname').val(),
+            emailid: $('#emailid').val(),
+            epassword: $('#epassword').val(),
+            emobilenumber: $('#emobilenumber').val(),          
+        },
+    })
+}
+
+</script>
+
+
+{% endblock adscript %}

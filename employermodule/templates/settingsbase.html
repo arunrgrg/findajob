@@ -6,7 +6,9 @@
             <div class="module-inner">
                 <div class="side-bar">
                     <div class="user-info">
-                       <img class="img-profile img-circle img-responsive center-block" src="/static/media/{{img.eimg}}" alt="">    
+                        {% block simg %}
+                       <img class="img-profile img-circle img-responsive center-block" src="/static/media/{{img.eimg}}" alt="">
+                       {% endblock simg %}    
                                <ul class="meta list list-unstyled">
                                    <li class="name"> {{user.sfirstname}}
                                        {% comment %} <label class="label label-info">UX Designer</label> {% endcomment %}
@@ -17,12 +19,12 @@
                         <ul class="nav">
                             <li class="active"><a href="{% url 'emsettings' %}"><span class="fa fa-user"></span>PROFILE</a></li>
                             <li><a href="{% url 'deatailch' %}"><span class="fa fa-cog"></span>EDIT PROFILE</a></li>
-                            <li><a href="{% url 'chngjbpst' %}"><span class="fa fa-cog"></span>DELETE JOBPOST</a></li>
+                            <li><a href="{% url 'chngjbpst' %}"><span class="fa fa-cog"></span>EDIT JOBPOST</a></li>
                             <li><a href="{% url 'chcmpwd' %}"><span class="fa fa-credit-card"></span>CHANGE PASSWORD</a></li>
-                            <li><a href="#"><span class="fa fa-envelope"></span> Messages</a></li>
+                            {% comment %} <li><a href="#"><span class="fa fa-envelope"></span> Messages</a></li>
 
                             <li><a href=""><span class="fa fa-th"></span> Drive</a></li>
-                            <li><a href="#"><span class="fa fa-clock-o"></span> Reminders</a></li>
+                            <li><a href="#"><span class="fa fa-clock-o"></span> Reminders</a></li> {% endcomment %}
                         </ul>
                     </nav>
                 </div>
@@ -43,7 +45,6 @@
                                         <div class="col-md-3 text-muted">Email</div>
                                         <div class="col-md-9">
                                             {{userob.ecemail}}
-
                                         </div>
                                     </div>
                                     <div class="row mb-2">
@@ -52,9 +53,6 @@
                                             {{userob.ecmobilenumber}}
                                         </div>
                                     </div>
-                                  
-                                    
-
                                     <div class="card-body">
                                         <p class="mb-2">
                                             <i class="ion ion-md-desktop ui-w-30 text-center text-lighter"></i>  {{userob.stitle}}</p>
@@ -89,7 +87,7 @@
                                     </p> 
                                 </div>
                                 <hr class="border-light m-0">
-                          
+            
                             </div>
                             <div class="card mb-4">
                                 <hr class="border-light m-0">

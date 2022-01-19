@@ -1,5 +1,5 @@
 from django.db import models
-
+from usermodule.models import *
 # Create your models here.
 
 
@@ -80,12 +80,12 @@ class emplor_postjob(models.Model):
     CATEGORY = (
 
          ('Real Estate','Real Estate'),
-         ('sale/marketing','sale/marketing'),
-         ('education/training','education/training'),
+         ('marketing','marketing'),
+         ('education','education'),
          ('healthcare','healthcare'),
          ('science','science'),
          ('Technologies','Technologies'),
-         ('art/Design','art/Design'),
+         ('Design','Design'),
          ('food services','food services'),
         
     )
@@ -112,3 +112,11 @@ class emplor_postjob(models.Model):
     
     def __str__(self):
         return self.get_jobcategory_display()
+
+class mail_msg(models.Model):
+
+    email=models.CharField(max_length=50,null=True)
+    message=models.CharField(max_length=50,null=True)
+    date=models.CharField(max_length=50,null=True)  
+    employer=models.IntegerField(null=True)
+    seeker=models.IntegerField(null=True)       

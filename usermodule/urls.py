@@ -12,20 +12,19 @@ urlpatterns = [
     path('emply_reg/',views.employeereg,name='employee'),
 
     path('resume/',views.seeresum,name='seekerresume'),
-    # path('profile',views.seekrpro,name='seekerprofile'),
     path('jobl_ist/',views.jblist,name='joblist'),
-    path('contactus',views.cnus,name='contactus'),
-
+    path('contactus/',views.cnus,name='contactus'),
+    path('blog/',views.blog,name='blog'),
 
 
     path('my_profile',views.prof,name='seemyprofile'),
     path('profile_edit/',views.profed,name='profileedit'),
     path('change_pwd/',views.chpwd,name='changepwd'),
     
-      path('jobsearch/',views.jobsearch,name='jobsearch'),
-    #  path('jobapply/',views.jobapply,name='jobapply'),
-      path('categorys/<str:cate>/',views.categorys,name='categorys'),
-    
+    path('jobsearch/',views.jobsearch,name='jobsearch'),
+    path('categorys/<str:cate>/',views.categorys,name='categorys'),
+
+    path('applied/',views.applied,name='applied'),   
     
     path('job_deta',views.jobdtls,name='jobdetails'),
     path('logout',views.logout,name='logout'),

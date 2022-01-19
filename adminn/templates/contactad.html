@@ -1,0 +1,61 @@
+{% extends 'basead.html' %} {% block content %}
+<section>
+    
+    <div class="container-fluid mt-5 ">
+        <div class="table-responsive ">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h2>User <b>Management</b></h2>
+                        </div>
+                        <div class="col-sm-7">
+                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="mt-5 pt-5">
+                    <table id="myTable" class="display">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                              
+                                <th>email</th>
+                                <th>phone</th>
+                                <th>message</th>
+                                {% comment %} <th>seekername</th> {% endcomment %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for i in cn %}
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td>{{ i.cname }}</td>
+                                <td>{{ i.cemail }}</td>
+                                <td>{{ i.cphone }}</td>
+                                <td>{{ i.cmessage }}</td>
+                                {% comment %} <td>{{ i. }}</td> {% endcomment %}
+                                {% comment %} <td>
+                                    <a class="btn btn-danger" href="/deleteem/{{ employermodule_emplor_reg.id }}" role="button" onclick="return confirm(' Are you sure you want to delete this account?')"><i class="material-icons">&#xE5C9;</i></a>
+                                </td> {% endcomment %}
+
+                            </tr>
+
+                            {% endfor %}           
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
+
+
+</section>
+
+
+
+
+
+
+{% endblock %}

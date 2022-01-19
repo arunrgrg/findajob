@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'employermodule',
     'adminn',
     'django_filters',
+    "bootstrap5"
+   
     
 ]
 
@@ -137,6 +139,19 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL ='/usermodule/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/media')
+
+# email settings
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT =587
+EMAIL_HOST_USER= 'aruntest655@gmail.com'
+EMAIL_HOST_PASSWORD='aruntest@123'
+EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

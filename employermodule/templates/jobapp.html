@@ -6,27 +6,25 @@
         <div class="profile-container">
             <div class="profile-header row mb-5">
                 <div class="col-md-4 col-sm-12 text-center">
-                  
-                    {% comment %} <img src="/static/media/{{ user.imgid_id }}" alt="" class="header-avatar"> {% endcomment %}
-                
+                <img src="/static/media/{{ i.imgid.simg }}" alt="" class="header-avatar"> 
+
                 </div>
                 <div class="col-md-8 col-sm-12 profile-info">
                     <div class="header-fullname">{{i.sfirstname }}</div>
 
                     <div class="header-information">
                         <p>{{i.semail}}</p>
-                    </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 profile-stats">
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
 
-                            <div class="stats-title"><button type="button" class="btn btn-outline-primary">DOWNLOAD CV</button></div>
+                            {% comment %} <div class="stats-title"><button type="button" class="btn btn-outline-primary">DOWNLOAD CV</button></div> {% endcomment %}
                         </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
+                        <div class="col-md-4 col-sm-4 col-xs-12 stats-col"> 
 
-                            <div class="stats-title"><button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">MESSAGE</button></div>
-
+                            {% comment %} <div class="stats-title"><a type="button" class="btn btn-outline-success" data-bs-toggle="modal" role="button"  data-bs-target="#exampleModal" >MESSAGE</a></div> {% endcomment %}
+                           
                             <!-- modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -36,21 +34,24 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+
+                                            <form action="/jobmsg/" method="POST"> {% csrf_token %}
                                                 <div class="mb-3">
+                                                    <input type="hidden" value="{{i.id}}" name="semid">
                                                     <label for="recipient-name" class="col-form-label">company email</label>
-                                                    <input type="text" class="form-control" id="recipient-name">
+                                                    <input type="text" class="form-control" id="recipient-name" name="memail">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="message-text" class="col-form-label">Message:</label>
-                                                    <textarea class="form-control" id="message-text"></textarea>
+                                                    <textarea class="form-control" id="message-text" name="mmsg"></textarea>
                                                 </div>
-                                            </form>
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Send message</button>
+                                            <a class="btn btn-primary" href="/jobmsg/{{ i.id }}" role="button">send message</a>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +60,9 @@
 
                         <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
 
-                            <div class="stats-title">    <a href="/job_seeker/{{ i.id }}"> <span class="badge rounded-pill bg-warning text-dark">view</span> </a></div>
+                            <div class="stats-title">
+                                <a href="/job_seeker/{{ i.id }}"> <span class="badge rounded-pill bg-warning text-dark">view</span> </a>
+                            </div>
                         </div>
                     </div>
 
@@ -68,5 +71,5 @@
         </div>
     </div>
     {% endfor %}
-   
+</div>
 </div>{% endblock %}

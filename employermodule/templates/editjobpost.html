@@ -1,11 +1,11 @@
-{% extends 'settingsbase.html' %} {% block profile %}
+{% extends 'settingsbase.html' %} {% block profile %} {% block simg %} {% endblock simg %}
 <div class="section mt-2">
     <h2 class="text-center mt-5 display-7 fw-bold mt-2  mb-5">JOB POSTS</h2>
     <div class="container justify-content-center">
         <div class="row mb-5 justify-content-center">
             <div class="col-md-12 ">
                 <div class="row gutters-sm ">
-                    {% for employermodule_emplor_postjob  in emplor %}
+                    {% for employermodule_emplor_postjob in emplor %}
                     <div class="card   mb-5 py-2">
                         <div class="card-body  ">
                             <div class="row no-gutters  ">
@@ -23,23 +23,43 @@
                                     </div>
                                     <div class=""><i class="bi bi-geo-alt">{{ employermodule_emplor_postjob.location }}</i></div>
                                     <div class="">
-                                        <span class="badge bg-danger bg-success">
-                                            {{ employermodule_emplor_postjob.jobtype }}</span>
+                                        <span class="">
+                                            <a class="btn btn-outline-info open-modal" id="button1" href="/editjbpst/{{ employermodule_emplor_postjob.id }}"  >edit</a>             
+                                            <!-- <a class="btn btn-outline-info open-modal" id="button1" data-url="/editjbpst/{{ employermodule_emplor_postjob.id }}" >edit</a>              -->
                                     </div>
                                     <div class="">
-                                        <a href="/deletejbpst/{{ employermodule_emplor_postjob.id }}"> <span class="badge rounded-pill bg-warning text-dark">delete</span> </a>
+                                        <a href="/deletejbpst/{{ employermodule_emplor_postjob.id }}"> <span class="badge rounded-pill bg-danger ">delete</span> </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
+
                     {% endfor %}
                 </div>
             </div>
-
-      
+        </div>
     </div>
-</div>
 
-{% endblock profile %}
+
+
+
+    {% endblock profile %} {% block escript %}
+
+    <!-- <script>
+        var modalDiv = $("#modal-div");
+
+        $(".open-modal").on("click", function() {
+            $.ajax({
+                url: $(this).attr("data-url"),
+                success: function(data) {
+                    modalDiv.html(data);
+                    $("#myEdit").modal();
+                }
+            });
+        });
+    </script> -->
+
+
+
+    {% endblock escript %}

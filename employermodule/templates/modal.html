@@ -1,0 +1,95 @@
+<div class="modal fade " id="staticBackdrop">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" id="post-job" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="jobtitle" class="form-label">Job Title</label>
+                            <input name="jobtitle" type="text" class="form-control" id="jobtitle" placeholder="" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="com_name" class="form-label">Company Name</label>
+                            <input name="com_name" type="text" class="form-control" id="com_name" placeholder="" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="p_location" class="form-label">location</label>
+                            <select class="form-select" id="p_location" name="p_location" required>
+                  
+                </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="categories" class="form-label">job type</label>
+                            <select class="form-select" id="jobtype" required>
+                   <option selected disabled value>Choose...</option>
+                   <option value="full time">full time</option>
+                   <option value="intern">intern</option>
+                   <option value="intern">part time</option>
+                </select>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="categories" class="form-label">job category</label>
+                            <select class="form-select" id="jobcategories" name="categories" required>
+                   <option selected disabled value>Choose...</option>
+                   <option value="Real Estate">Real Estate</option>
+                   <option value="sale/marketing">sale/marketing</option>
+                   <option value="education/training">education/training</option>
+                   <option value="healthcare">healthcare</option>
+                   <option value="science">science</option>
+                   <option value="Technologies">Technologies</option>
+                   <option value="art/Design">art/Design</option>
+                   <option value="food services">food services</option>
+                </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="Description">job Description:</label>
+                            <textarea class="form-control" aria-label="With textarea" id="jobdesc" required></textarea>
+
+                        </div>
+                        <div class="col-12">
+                            <label for="Description">Skills, and Abilities</label>
+                            <input name="jobtitle" type="text" class="form-control" id="skill1" placeholder="" required>
+                            <input name="jobtitle" type="text" class="form-control" id="skill2" placeholder="" required>
+                            <input name="jobtitle" type="text" class="form-control" id="skill3" placeholder="" required>
+                            <input name="jobtitle" type="text" class="form-control" id="skill4" placeholder="" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="experience" class="form-label">Experience
+                </label>
+                            <select class="form-select" id="Experience" name="experience" required>
+                   <option selected disabled value>Choose...</option>
+                   <option value="fresher">fresher</option>
+                   <option value="1 year">1 year</option>
+                   <option value="1 to 5 year">1 to 5 year</option>
+                   <option value="5 to 10 year">5 to 10 year</option>
+                   <option value="10 to 20 year">10 to 20 year</option>
+                </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="Salary" class="form-label">Salary Range
+                </label>
+
+                            <input name="jobtitle" type="text" class="form-control" id="salary" placeholder="" required>
+                        </div>
+
+                        <div class="col-12">data: { "iddy": $('.closeBtn').attr("id")},
+                            <label for="qualification" class="form-label">Education Qualification</label>
+                            <input name="qualification" type="text" class="form-control " id="qualification" required>
+                        </div>
+
+                    </div>
+                    <hr class="my-4 ">
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="empostajax()">POST</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>xv x

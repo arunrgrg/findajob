@@ -2,7 +2,7 @@
 
 
 <section>
-    
+
     <div class="container-fluid mt-5 ">
         <div class="table-responsive ">
             <div class="table-wrapper">
@@ -12,11 +12,55 @@
                             <h2>User <b>Management</b></h2>
                         </div>
                         <div class="col-sm-7">
-                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+                            <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
 
                         </div>
                     </div>
-                </div> 
+                </div>
+
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">add job seeker</h5>
+
+                                <a type="button" class="btn-close" href="{% url 'employad' %}" data-bs-dismiss="modal" aria-label="Close"></a>
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <div class="col-sm-12">
+                                        <label for="jobtitle" class="form-label">first name</label>
+                                        <input name="jobtitle" type="text" class="form-control" id="sfirstname" placeholder="" required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="com_name" class="form-label">last name</label>
+                                        <input name="com_name" type="text" class="form-control" id="slastname" placeholder=" " required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="jobtitle" class="form-label">email</label>
+                                        <input name="jobtitle" type="text" class="form-control" id="semail" placeholder="" required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="com_name" class="form-label">password</label>
+                                        <input name="com_name" type="text" class="form-control" id="spassword" placeholder=" " required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="com_name" class="form-label">mobile number</label>
+                                        <input name="com_name" type="text" class="form-control" id="smobile" placeholder=" " required>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-primary" href="{% url 'employad' %}" onclick="empostaja()" role="button">ADD</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
 
                 <div class="mt-5 pt-5">
                     <table id="myTable" class="display">
@@ -36,12 +80,13 @@
 
                                 {% for usermodule_seeker_reg in seeker %}
                                 <th scope="row">{{forloop.counter}}</th>
-                                <td>{{ usermodule_seeker_reg.id }}</td>
+                                <td>{{ usermodule_seeker_reg.sfirstname }}</td>
                                 <td>{{ usermodule_seeker_reg.slastname }}</td>
                                 <td>{{ usermodule_seeker_reg.semail }}</td>
                                 <td>{{ usermodule_seeker_reg.spassword }}</td>
                                 <td>{{ usermodule_seeker_reg.smobilenumber }}</td>
                                 <td>
+                                    <a class="btn btn-info" href="/editseeker/{{  usermodule_seeker_reg.id }}" role="button"><i class="bi bi-pencil-square"></i></a>
                                     <a class="btn btn-danger" href="/deletese/{{ usermodule_seeker_reg.id }}" role="button" onclick="return confirm(' Are you sure you want to delete this account?')"><i class="material-icons">&#xE5C9;</i></a>
                                 </td>
 
@@ -49,11 +94,11 @@
 
                             {% endfor %}
 
-                            
+
                         </tbody>
                     </table>
                 </div>
-               
+
 
 
 
@@ -74,7 +119,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            32
+                                            {{count}}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
@@ -98,7 +143,7 @@
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            3
+                                            {{count}}
                                         </h2>
                                     </div>
                                     <div class="col-4 text-right">
@@ -114,17 +159,37 @@
                 </div>
 
 
-            </div> 
+            </div>
 
 
 </section>
 
 
 
+{% endblock %} {% block adscript %}
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": '{{csrf_token}}'
+        }
+    });
+
+    function empostaja() {
+        $.ajax({
+            url: '/admin/',
+            type: 'POST',
+            data: {
+                sfirstname: $('#sfirstname').val(),
+                slastname: $('#slastname').val(),
+                semail: $('#semail').val(),
+                spassword: $('#spassword').val(),
+                smobile: $('#smobile').val(),
+
+            },
+        })
+    }
+</script>
 
 
-
-
-
-
-{% endblock %}
+{% endblock adscript %}

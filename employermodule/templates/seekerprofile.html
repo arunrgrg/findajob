@@ -1,7 +1,8 @@
 {% extends 'employerbase.html' %}{% block content %}
 
 
-<div class="container flex-grow-1 container-p-y pt-5 mt-5">
+
+<div class="container flex-grow-1 container-p-y pt-5 mt-5" id="pdf">
 
     <!-- Header -->
     <div class="container-m-nx container-m-ny theme-bg-white mb-4">
@@ -19,6 +20,7 @@
     </div>
     <!-- Header -->
 
+
     <div class="row">
         <div class="col">
             <!-- Info -->
@@ -27,7 +29,7 @@
                     <div class="row mb-2">
                         <div class="col-md-3 text-muted">Full Name</div>
                         <div class="col-md-9">
-                          {{user.sfirstname}}
+                            {{user.sfirstname}}
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -47,13 +49,13 @@
                     <div class="row mb-2">
                         <div class="col-md-3 text-muted">school name</div>
                         <div class="col-md-9">
-                    {{userob.sschoolname}}
+                            {{userob.sschoolname}}
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-3 text-muted">qualification</div>
                         <div class="col-md-9">
-                      {{userob.squalification}}
+                            {{userob.squalification}}
                         </div>
                     </div>
                     <h6 class="my-3">experiance</h6>
@@ -73,7 +75,7 @@
                     <div class="row">
                         <div class="col-md-3 text-muted">START/END DATE</div>
                         <div class="col-md-9">
-                            {{userob.sstartdate}} TO  {{userob.senddate}}
+                            {{userob.sstartdate}} TO {{userob.senddate}}
                         </div>
                     </div>
                 </div>
@@ -81,20 +83,17 @@
             <!-- / Info -->
         </div>
         <div class="col-xl-4">
-
+            <div class="text-center"><a type="button" role="button" href="{% url 'pdf' user.id %}" class="btn btn-outline-primary m-2">DOWNLOAD CV</a><a type="button" class="btn btn-outline-success " data-bs-toggle="modal" role="button" data-bs-target="#exampleModal">MESSAGE</a></div>
             <!-- Side info -->
             <div class="card mb-4">
 
                 <hr class="border-light m-0">
                 <div class="card-body">
                     <p class="mb-2">
-                        <i class="ion ion-md-desktop ui-w-30 text-center text-lighter"></i>  {{userob.stitle}}</p>
+                        <i class="ion ion-md-desktop ui-w-30 text-center text-lighter"></i> {{userob.stitle}}</p>
                     <p class="mb-2">
                         <i class="ion ion-ios-navigate ui-w-30 text-center text-lighter"></i> London, United Kingdom</p>
-                    <!-- <p class="mb-0">
-                        <i class="ion ion-md-globe ui-w-30 text-center text-lighter"></i>
-                        <a href="javascript:void(0)" class="text-body">website.com</a>
-                    </p> -->
+
                 </div>
                 <hr class="border-light m-0">
                 <div class="card mb-4">
@@ -129,19 +128,42 @@
         </div>
     </div>
 </div>
+
 <!-- / Content -->
+<div class="stats-title"></div>
+<!-- <div class="text-center"><a type="button" role="button" href="{% url 'pdf' user.id %}" class="btn btn-outline-primary m-3">DOWNLOAD CV</a><a type="button" class="btn btn-outline-success ml-4" data-bs-toggle="modal" role="button" data-bs-target="#exampleModal">MESSAGE</a></div> -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form action="/jobmsg/" method="POST"> {% csrf_token %}
+                    <div class="mb-3">
+                        <input type="hidden" value="{{user.id}}" name="semid">
+                        <label for="recipient-name" class="col-form-label">company email</label>
+                        <input type="text" class="form-control" id="recipient-name" name="memail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text" name="mmsg"></textarea>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit">send message</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-{% endblock %}
+{% endblock %} {% block escript %} {% endblock escript %}
