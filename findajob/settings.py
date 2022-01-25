@@ -82,19 +82,28 @@ WSGI_APPLICATION = 'findajob.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {       
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME':'findajob',
-        'USER':'postgres',
-        'PASSWORD':'root',
-        'HOST':'localhost',
-        'PORT':'5432'
+# DATABASES = {
+#     'default': {       
+#         'ENGINE':'django.db.backends.postgresql_psycopg2',
+#         'NAME':'findajob',
+#         'USER':'postgres',
+#         'PASSWORD':'root',
+#         'HOST':'localhost',
+#         'PORT':'5432'
 
+#     }
+# }
+
+DATABASES = {
+    'default': {
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'NAME':'ddqnqqiqs6aq0o',
+        'USER':'enqqsbevxixixx',
+        'PASSWORD':'44aa4c142b36b758aee2f81005b1548e42dcf8ed0c1c35975567cc6a6a88fb6b',
+        'HOST':'ec2-54-160-103-135.compute-1.amazonaws.com',
+        'PORT':'5432'
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
