@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+jl*t--9-u#h((j(ys7jr7*i01minw!q9y4%bptcfutpz-fl63'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -149,7 +149,7 @@ STATICFILES_DIRS = [
 MEDIA_URL ='/usermodule/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/media')
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # email settings
 
