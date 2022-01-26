@@ -407,9 +407,13 @@ def msg(request):
 
 
 def blogem(request):
-
-    userid=request.session['emid'] 
-    s_ob=emplor_cmre.objects.get(id=userid)
+    
+    try:
+        userid=request.session['emid'] 
+        s_ob=emplor_cmre.objects.get(id=userid)
+    except:
+        userid=''
+        s_ob=''
 
     if request.method=="POST":
 
