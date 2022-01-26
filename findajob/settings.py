@@ -149,6 +149,8 @@ STATICFILES_DIRS = [
 MEDIA_URL ='/usermodule/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/media')
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # email settings
 
 EMAIL_HOST = 'smtp.gmail.com'
